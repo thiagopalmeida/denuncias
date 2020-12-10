@@ -39,8 +39,26 @@ puts "-======= Criando usuários... =======-"
       name: Faker::Name.name_with_middle,
       email: Faker::Internet.email,
       cpf: Faker::CPF.pretty,
-      password: '123456')
+      phone: Faker::PhoneNumber.cell_phone,
+      role: 2,
+      password: '123456'
+      )
   puts "Usuário #{u.name} criado com CPF #{u.cpf}"
+end
+
+func = ["Millena Wiese", "Ana Paula Pontello", "Thiago Almeida"]
+n = 0
+3.times do
+  u = User.create!(
+      name: func[n],
+      email: Faker::Internet.email,
+      cpf: Faker::CPF.pretty,
+      phone: Faker::PhoneNumber.cell_phone,
+      role: 1,
+      password: '123456'
+      )
+  n += 1
+  puts "Servidor #{u.name} criado com CPF #{u.cpf}"
 end
 
 puts ""
@@ -49,29 +67,36 @@ puts "-======= Criando denúncias... =======-"
 10.times do
   new_user_id += 1
   custom_type = [true, false].sample
-  custom_type ? cust = Category.where(sector: "Aduana").sample : cust = Category.where(sector: "Aduana").sample
+  custom_type ? cust = Category.where(sector: "Aduana").sample : cust = Category.where(sector: "Tributo Interno").sample
   url = 'https://baconipsum.com/api/?type=all-meat&paras=2&start-with-lorem=1'
   text = JSON.parse(open(url).read)
   desc = text.join
-  comm = text[1]
+  admin = User.where(role: 2).sample
 
   d = Complaint.create!(
     user_id: new_user_id,
-    custom: cust.sector,
+    custom: custom_type,
     ni_comp: Faker::CNPJ.pretty,
     year_comp: (2015..2020).to_a.sample,
     keep: %w[sim não talvez].sample,
     description: desc,
     status: %w[recebido encaminhado finalizado].sample,
+    admin_user: admin.id,
     rating: (1..5).to_a.sample,
     ua: ['Primeira Região Fiscal', 'Segunda Região Fiscal', 'Terceira Região Fiscal', 'Quarta Região Fiscal'].sample,
-    comment: comm
+    comment: Faker::ChuckNorris.fact
     )
 
-  cat = ComplaintCategory.create!(
-    complaint_id: d.id,
-    category_id: cust.id
-    )
+  puts "-- Denúncia #{d.id} criada. --"
+
+  num_category = (1..3).to_a.sample
+  num_category.times do
+    cat = ComplaintCategory.create!(
+      complaint_id: d.id,
+      category_id: cust.id
+      )
+    puts "*** Categoria #{cat.id} adicionada ***"
+  end
 
 end
 
