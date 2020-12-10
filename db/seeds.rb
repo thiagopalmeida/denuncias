@@ -70,3 +70,8 @@ puts "-======= Criando denúncias... =======-"
     )
 end
 
+puts "-======= Denúncias criadas! =======-"
+
+
+
+
