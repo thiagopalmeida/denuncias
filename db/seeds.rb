@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Apagando dados anteriores..."
 Category.destroy_all
+Complaint.destroy_all
 User.destroy_all
 puts "Dados apagados!"
 new_user_id = 0
@@ -60,7 +61,7 @@ puts "-======= Criando denúncias... =======-"
     user_id: new_user_id,
     custom: comp.sample.title,
     ni_comp: "Não sei",
-    year_comp: [2015..2020].to_a.sample,
+    year_comp: (2015..2020).to_a.sample,
     keep: %w[sim não talvez].sample,
     description: desc,
     status: %w[recebido encaminhado finalizado].sample,
@@ -71,7 +72,3 @@ puts "-======= Criando denúncias... =======-"
 end
 
 puts "-======= Denúncias criadas! =======-"
-
-
-
-
