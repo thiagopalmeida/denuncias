@@ -49,26 +49,30 @@ puts "-======= Criando denúncias... =======-"
 10.times do
   new_user_id += 1
   custom_type = [true, false].sample
-  custom_type ? comp = Category.where(sector: "Aduana") : comp = Category.where(sector: "Aduana")
-
+  custom_type ? cust = Category.where(sector: "Aduana").sample : cust = Category.where(sector: "Aduana").sample
   url = 'https://baconipsum.com/api/?type=all-meat&paras=2&start-with-lorem=1'
-  text_serial = open(url).read
-  text = JSON.parse(text_serial)
+  text = JSON.parse(open(url).read)
   desc = text.join
   comm = text[1]
 
   d = Complaint.create!(
     user_id: new_user_id,
-    custom: comp.sample.title,
-    ni_comp: "Não sei",
+    custom: cust.sector,
+    ni_comp: Faker::CNPJ.pretty,
     year_comp: (2015..2020).to_a.sample,
     keep: %w[sim não talvez].sample,
     description: desc,
     status: %w[recebido encaminhado finalizado].sample,
     rating: (1..5).to_a.sample,
-    ua: "Não sei",
+    ua: ['Primeira Região Fiscal', 'Segunda Região Fiscal', 'Terceira Região Fiscal', 'Quarta Região Fiscal'].sample,
     comment: comm
     )
+
+  cat = ComplaintCategory.create!(
+    complaint_id: d.id,
+    category_id: cust.id
+    )
+
 end
 
 puts "-======= Denúncias criadas! =======-"
