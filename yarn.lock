@@ -4157,6 +4157,11 @@ last-call-webpack-plugin@^3.0.0:
     lodash "^4.17.5"
     webpack-sources "^1.1.0"
 
+lerolero@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/lerolero/-/lerolero-0.1.0.tgz#40ea345a20b5f3375306245be546ed75211b9aa2"
+  integrity sha512-M1+CpYENss+v6kj/85LtXV+uHlDGVBGzynUrkYQ1hvNhB57zmNDyojT5RmHyOzhPlXBOKCMdPVCFYz8uYEz/Aw==
+
 lines-and-columns@^1.1.6:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
