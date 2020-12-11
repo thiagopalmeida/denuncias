@@ -1,4 +1,4 @@
-class ComplementController < ApplicationController
+class ComplementsController < ApplicationController
   def new
     @complaint = Complaint.find(params[:complaint_id])
     @complement = Complement.new
