@@ -1,0 +1,100 @@
+<div class="container">
+  <table>
+    <thead>
+      <th>Área</th>
+      <th>CNPJ</th>
+      <th>Nome da Empresa</th>
+      <th>Endereço</th>
+      <th>Ano do Ilícito</th>
+      <th>Ainda Comentendo Ilícito?</th>
+      <th>Denunciante</th>
+    </thead>
+    <tbody>
+      <h2>Recebido</h2>
+      <% @complaints.each do |complaint| %>
+        <% if complaint.status == "recebido" %>
+          <tr>
+            <% if complaint.custom.to_s == 'true' %>
+              <td>Aduana</td>
+            <% else %>
+              <td>Tributo Interno</td>
+            <% end %>
+            <td><%= complaint.ni_comp %></td>
+            <td><%= complaint.name %></td>
+            <td><%= complaint.address %></td>
+            <td><%= complaint.year_comp %></td>
+            <td><%= complaint.keep.capitalize %></td>
+            <td><%= complaint.user.name %></td>
+            <td><%= link_to "Detalhes", complaint_path(complaint) %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <th>Área</th>
+      <th>CNPJ</th>
+      <th>Nome da Empresa</th>
+      <th>Endereço</th>
+      <th>Ano do Ilícito</th>
+      <th>Ainda Comentendo Ilícito?</th>
+      <th>Denunciante</th>
+    </thead>
+    <tbody>
+      <h2>Encaminhado</h2>
+      <% @complaints.each do |complaint| %>
+        <% if complaint.status == "encaminhado" %>
+          <tr>
+            <% if complaint.custom.to_s == 'true' %>
+              <td>Aduana</td>
+            <% else %>
+              <td>Tributo Interno</td>
+            <% end %>
+            <td><%= complaint.ni_comp %></td>
+            <td><%= complaint.name %></td>
+            <td><%= complaint.address %></td>
+            <td><%= complaint.year_comp %></td>
+            <td><%= complaint.keep.capitalize %></td>
+            <td><%= complaint.user.name %></td>
+            <td><%= link_to "Detalhes", complaint_path(complaint) %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <th>Área</th>
+      <th>CNPJ</th>
+      <th>Nome da Empresa</th>
+      <th>Endereço</th>
+      <th>Ano do Ilícito</th>
+      <th>Ainda Comentendo Ilícito?</th>
+      <th>Denunciante</th>
+    </thead>
+    <tbody>
+      <h2>Finalizado</h2>
+      <% @complaints.each do |complaint| %>
+        <% if complaint.status == "finalizado" %>
+          <tr>
+            <% if complaint.custom.to_s == 'true' %>
+              <td>Aduana</td>
+            <% else %>
+              <td>Tributo Interno</td>
+            <% end %>
+            <td><%= complaint.ni_comp %></td>
+            <td><%= complaint.name %></td>
+            <td><%= complaint.address %></td>
+            <td><%= complaint.year_comp %></td>
+            <td><%= complaint.keep.capitalize %></td>
+            <td><%= complaint.user.name %></td>
+            <td><%= link_to "Detalhes", complaint_path(complaint) %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
