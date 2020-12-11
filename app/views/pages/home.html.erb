@@ -1,2 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home-video-wrapper">
+  <%= video_tag "institucional_receita_filtro-1000k.mp4", autoplay: :autoplay, muted: :muted, class: "home_video" %>
+  <div class="container">
+    <div class="text-main row align-items-center justify-content-center">
+      <div class="col">
+        <h1 class="home"> Participe do combate à sonegação</h1>
+        <br>
+        <%= link_to class:"link" do %>
+          <h1 id="denuncia">Denuncie</h1>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
