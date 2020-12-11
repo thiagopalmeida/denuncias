@@ -71,7 +71,7 @@ puts "-======= Criando denúncias... =======-"
   url = 'https://baconipsum.com/api/?type=all-meat&paras=2&start-with-lorem=1'
   text = JSON.parse(open(url).read)
   desc = text.join
-  admin = User.where(role: 2).sample
+  admin = User.where(role: 1).sample
 
   d = Complaint.create!(
     user_id: new_user_id,

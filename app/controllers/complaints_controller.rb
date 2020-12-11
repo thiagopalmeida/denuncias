@@ -4,7 +4,8 @@ class ComplaintsController < ApplicationController
   end
 
   def show
-    @complaints = Complaint.find(params[:id])
+    @complaint = Complaint.find(params[:id])
+    @admins = User.where(role: 1)
   end
 
   def new

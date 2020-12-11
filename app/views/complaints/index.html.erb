@@ -1,12 +1,12 @@
 <div class="container">
-  <table>
+  <table class="table">
     <thead>
       <th>Área</th>
       <th>CNPJ</th>
       <th>Nome da Empresa</th>
       <th>Endereço</th>
       <th>Ano do Ilícito</th>
-      <th>Ainda Comentendo Ilícito?</th>
+      <th>Ilícito ativo?</th>
       <th>Denunciante</th>
     </thead>
     <tbody>
@@ -14,7 +14,7 @@
       <% @complaints.each do |complaint| %>
         <% if complaint.status == "recebido" %>
           <tr>
-            <% if complaint.custom.to_s == 'true' %>
+            <% if complaint.custom? %>
               <td>Aduana</td>
             <% else %>
               <td>Tributo Interno</td>
@@ -31,15 +31,14 @@
       <% end %>
     </tbody>
   </table>
-
-  <table>
+  <table class="table">
     <thead>
       <th>Área</th>
       <th>CNPJ</th>
       <th>Nome da Empresa</th>
       <th>Endereço</th>
       <th>Ano do Ilícito</th>
-      <th>Ainda Comentendo Ilícito?</th>
+      <th>Ilícito ativo?</th>
       <th>Denunciante</th>
     </thead>
     <tbody>
@@ -47,7 +46,7 @@
       <% @complaints.each do |complaint| %>
         <% if complaint.status == "encaminhado" %>
           <tr>
-            <% if complaint.custom.to_s == 'true' %>
+            <% if complaint.custom? %>
               <td>Aduana</td>
             <% else %>
               <td>Tributo Interno</td>
@@ -64,15 +63,14 @@
       <% end %>
     </tbody>
   </table>
-
-  <table>
+  <table class="table">
     <thead>
       <th>Área</th>
       <th>CNPJ</th>
       <th>Nome da Empresa</th>
       <th>Endereço</th>
       <th>Ano do Ilícito</th>
-      <th>Ainda Comentendo Ilícito?</th>
+      <th>Ilícito ativo?</th>
       <th>Denunciante</th>
     </thead>
     <tbody>
@@ -80,7 +78,7 @@
       <% @complaints.each do |complaint| %>
         <% if complaint.status == "finalizado" %>
           <tr>
-            <% if complaint.custom.to_s == 'true' %>
+            <% if complaint.custom? %>
               <td>Aduana</td>
             <% else %>
               <td>Tributo Interno</td>
