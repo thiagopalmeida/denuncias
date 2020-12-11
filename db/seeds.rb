@@ -66,7 +66,7 @@ puts "-======= Criando denúncias... =======-"
 
 10.times do
   new_user_id += 1
-  custom_type = [true, false].sample
+  custom_type = [0, 1].sample
   custom_type ? cust = Category.where(sector: "Aduana").sample : cust = Category.where(sector: "Tributo Interno").sample
   url = 'https://baconipsum.com/api/?type=all-meat&paras=2&start-with-lorem=1'
   text = JSON.parse(open(url).read)
@@ -77,6 +77,10 @@ puts "-======= Criando denúncias... =======-"
     user_id: new_user_id,
     custom: custom_type,
     ni_comp: Faker::CNPJ.pretty,
+    know_ni: [true, false].sample,
+    name: Faker::Restaurant.name,
+    address: Faker::Address.street_name,
+    with_attach: false,
     year_comp: (2015..2020).to_a.sample,
     keep: %w[sim não talvez].sample,
     description: desc,

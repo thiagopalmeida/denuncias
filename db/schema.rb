@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_11_005045) do
+ActiveRecord::Schema.define(version: 2020_12_11_142500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 2020_12_11_005045) do
   end
 
   create_table "complaints", force: :cascade do |t|
-    t.boolean "custom"
     t.string "ni_comp"
     t.integer "year_comp"
     t.string "keep"
@@ -49,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_12_11_005045) do
     t.string "name"
     t.string "address"
     t.boolean "with_attach"
+    t.integer "custom"
     t.index ["user_id"], name: "index_complaints_on_user_id"
   end
 
