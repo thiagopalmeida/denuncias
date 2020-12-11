@@ -1,0 +1,77 @@
+<%= simple_form_for(@complaint) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div id="complaint-form">
+    <p>Seja muito bem-vindo(a) ao canal de denúncias da Receita Federal!</p>
+    <p>Estamos muito contentes que você decidiu fazer uma denúncia.</p>
+    <p>Vamos começar?</p>
+    <p>O trabalho da Receita Federal pode ser dividido em duas grandes áreas: 
+    ADUANA e TRIBUTOS INTERNOS.</p>
+    <p>A qual das duas áreas sua denúncia se refere?</p>
+      <div class="container">
+        <%=f.collection_radio_buttons :custom, [[true, 'Aduana'] ,
+        [false, 'Tributos Internos']], :first, :last%>
+      </div>
+
+    <%# Colocar isso apenas se houver hover? https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_display_element_hover%>
+    <p>A Aduana está relacionada ao fluxo internacional de bens, mercadorias e 
+    veículos. 
+    Assim, se a sua denúncia tiver relação com importação, exportação, contrabando 
+    e contrafação de mercadorias (mercadorias falsificadas / piratas), babagem 
+    de viajantes e tributos incidentes sob o comércio exterior, selecione ADUANA.</p>
+    <p>Se estiver relacionada a tributos internos, isto é, com os demais tributos 
+    federais como Imposto de Renda, Contribuições Sociais (CSLL, PIS, Cofins, Cide etc) e 
+    Previdenciárias, IPI, ITR, IOF, entre outros, selecione TRIBUTOS INTERNOS.</p>
+
+    <p>Ótimo! Agora escreva a sua denúncia com o maior nível de detalhamento que conseguir:</p>
+    <%= f.input :description, label:false, :required => true %>
+
+    <p>Você sabe o CPF ou CNPJ da pessoa física ou jurídica que está envolvida 
+    em sua denúncia?</p>
+    <p>Quanto mais informações puder nos fornecer, mais rápido poderemos tomar 
+    as providências necessárias.</p>
+      <div class="container", id="with_ni">
+        <%=f.collection_radio_buttons :know_ni, [[true, 'Sim'] ,
+        [false, 'Não']], :first, :last%>
+      </div>
+
+    <%# Se não souber o NI: %>
+    <p>Não tem problema. Para nos ajudar a localizar esta pessoa, saberia dizer 
+    o seu endereço e/ou o seu nome?</p>
+    <%= f.input :name, label:false, :placeholder => 'Nome' %>
+    <%= f.input :address, label:false, :placeholder => 'Endereço' %>
+
+    <%# Se souber o NI: %>
+    <%= f.input :ni_comp, label:false, :required => true, :placeholder=> 'CPF ou CNPJ' %>
+    
+    <p>Em que ano aconteceu este fato que você acabou de nos contar?</p>
+    <%= f.input :year_comp, label:false, :placeholder => 'Digite apenas números', :required => true  %>
+    
+    <p>E você acha que ainda está acontecendo?</p>
+    <div class="container">
+      <%= f.collection_radio_buttons :keep,  [['Sim', 'Sim'] ,
+        ['Não', 'Não'], ['Não sei', 'Não sei']], :first, :last%>
+      </div>
+
+    Já estamos quase acabando...
+              
+    <p>Gostaria de juntar algum documento ou foto relativo à denúncia?</p>
+    <%=f.collection_radio_buttons :with_attach, [[true, 'Sim'] ,
+        [false, 'Não']], :first, :last%>
+
+    <%# Se a resposta anterior for SIM. %>
+    <%= f.input :attachment, label:false, as: :file, input_html: { multiple: true }%> 
+    </div>
+
+    <p>Em sua opinião, quais tópicos possuem relação com sua denúncia?
+      Selecione quantos desejar. </p>
+    <%# Falta inserir as categorias! %>
+
+    <p>Revise a denúncia e, quando finalizar, clique no botão "Enviar".</p>
+
+    <div class="form-actions">
+      <%= f.button :submit, 'Confirmar', class: "" %>
+    </div>
+  </div>
+<% end %>
