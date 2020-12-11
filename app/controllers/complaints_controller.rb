@@ -4,7 +4,8 @@ class ComplaintsController < ApplicationController
   end
 
   def show
-    @complaints = Complaint.find(params[:id])
+    @complaint = Complaint.find(params[:id])
+    @admins = User.where(role: 1)
   end
 
   def new
@@ -17,7 +18,7 @@ class ComplaintsController < ApplicationController
     @complaint.user = current_user
 
     if @complaint.save
-      # Alterar rota quando tiver outras páginas.
+      # Alterar rota quando tiver outras paginas.
       redirect_to root_path, notice: "Denúncia criada com sucesso!"
     else
       render :new
