@@ -22,7 +22,7 @@ class ComplaintsController < ApplicationController
     else
       render :new
     end
-
+  end
 
   private
 
