@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :complaint, only: [:index, :show, :new, :create] do
     resources :complement, only: [:new, :create]
   end
+
 end
