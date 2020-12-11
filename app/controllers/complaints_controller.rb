@@ -1,4 +1,12 @@
 class ComplaintsController < ApplicationController
+  def index
+    @complaints = Complaint.all
+  end
+
+  def show
+    @complaints = Complaint.find(params[:id])
+  end
+
   def new
     @complaint = Complaint.new
   end
@@ -14,11 +22,12 @@ class ComplaintsController < ApplicationController
     else
       render :new
     end
-  end
+
 
   private
 
   def complaint_params
     params.require(:complaint).permit(:custom, :ni_comp, :year_comp, :keep, :description, :user_id, :know_ni, :name, :address, attachments: [])
   end
+
 end
