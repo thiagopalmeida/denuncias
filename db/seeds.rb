@@ -34,7 +34,7 @@ end
 puts ""
 puts "-======= Criando usuários... =======-"
 
-10.times do
+20.times do
   u = User.create!(
       name: Faker::Name.name_with_middle,
       email: Faker::Internet.email,
@@ -64,7 +64,7 @@ end
 puts ""
 puts "-======= Criando denúncias... =======-"
 
-10.times do
+20.times do
   new_user_id += 1
   custom_type = [true, false].sample
   custom_type ? cust = Category.where(sector: "Aduana").sample : cust = Category.where(sector: "Tributo Interno").sample
