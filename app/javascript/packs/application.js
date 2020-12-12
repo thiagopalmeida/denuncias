@@ -26,6 +26,7 @@ require("../plugins/verify.notify")
 // External imports
 import "bootstrap";
 // import Typed from 'typed.js';
+import "../plugins/typed"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
