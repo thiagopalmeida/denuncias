@@ -7,4 +7,5 @@ class Complaint < ApplicationRecord
   has_many :complaint_categories
   has_many :complements
   has_many_attached :documents, dependent: :destroy
+  has_many :categories, through: :complaint_categories
 end
