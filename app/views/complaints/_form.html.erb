@@ -73,10 +73,9 @@
     <%# OBS: Este ":complaint_categories_id" foi incluído na tabela Complaints APENAS para visualizar as categorias no form de Complaint. %>
     <p>#CATEGORIAS ADUANA</p>
     <%= f.association :categories, as: :check_boxes, collection: @cat_aduana, include_hidden: false%>
-    <%# <%= f.input :complaint_categories_id, as: :check_boxes, collection: @cat_aduana, include_hidden: false%> %>
     
     <p>#CATEGORIAS TRIBUTOS INTERNOS</p>
-    <%# <%= f.input :complaint_categories_id, as: :check_boxes, collection: @cat_trib_int, include_hidden: false%> %>
+    <%= f.input :categories, as: :check_boxes, collection: @cat_trib_int, include_hidden: false %>
     
     <%# DEPOIS AJUSTAR PARA POSSIBILITAR DENÚNCIAS ANÔNIMAS %>
     <%# <p>Gostaria de se identificar?</p> %>
