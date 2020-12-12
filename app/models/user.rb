@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_many :complaints
   has_many :complements
 
-  validates :name, :phone, :email, :cpf, presence: true
+  # validates :name, :phone, :email, :cpf, presence: true
 end

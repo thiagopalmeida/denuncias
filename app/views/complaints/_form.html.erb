@@ -68,10 +68,56 @@
       Selecione quantos desejar. </p>
     <%# Falta inserir as categorias! %>
 
-    <p>Revise a denúncia e, quando finalizar, clique no botão "Enviar".</p>
+  <button type="button" id="review_info" class="" data-toggle="modal" data-target="#info">
+    Revisar informações
+  </button>
 
-    <div class="form-actions">
-      <%= f.button :submit, 'Confirmar', class: "" %>
+<!-- Modal -->
+  <div class="modal fade" id="info" tabindex="-1" aria-labelledby="infoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="infoLabel">Resumo da denúncia</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          </div>
+          <div class="modal-body">
+            <div class="area_modal"> 
+              <strong>Área à qual a denúncia se refere: </strong>
+              <p id="area_modal"></p>
+            </div>
+            <div class="description_modal"> 
+              <strong>Descrição: </strong>
+              <p id="description_modal"></p>
+            </div>
+            <div class="denounced_modal"> 
+              <strong>Nome do denunciado: </strong>
+              <p id="denounced_modal"></p>
+              <strong>Endereço do denunciado: </strong>
+              <p id="address_modal"></p>
+              <strong>CPF ou CNPJ do denunciado: </strong>
+              <p id="ni_modal"></p>
+            </div>
+            <div class="init_year_modal"> 
+              <strong>Ano de início da ocorrência: </strong>
+              <p id="init_year_modal"></p>
+            </div>
+            <div class="continuous_modal"> 
+              <strong>Ocorrência continua acontecendo? </strong>
+              <p id="continuous_modal"></p>
+            </div>
+            <div class="attachments"> 
+              <strong>Documentos anexados: </strong>
+              <p id="attachments"></p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+            <%= f.button :submit, 'Confirmar', class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>
