@@ -84,7 +84,7 @@ puts "-======= Criando denúncias... =======-"
     year_comp: (2015..2020).to_a.sample,
     keep: %w[sim não talvez].sample,
     description: desc,
-    status: %w[recebido encaminhado finalizado].sample,
+    status: %w[recebida encaminhada finalizada].sample,
     admin_user: admin.id,
     rating: (1..5).to_a.sample,
     ua: ['Primeira Região Fiscal', 'Segunda Região Fiscal', 'Terceira Região Fiscal', 'Quarta Região Fiscal'].sample,
