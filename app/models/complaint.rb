@@ -6,5 +6,6 @@ class Complaint < ApplicationRecord
   belongs_to :user
   has_many :complaint_categories
   has_many :complements
+  has_many :categories, through: :complaint_categories
   has_many_attached :attachments, dependent: :destroy
 end
