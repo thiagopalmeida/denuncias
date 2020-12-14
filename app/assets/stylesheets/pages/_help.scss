@@ -1,0 +1,91 @@
+.qual_duvida {
+  display: flex;
+  border: none;
+  margin-top: 10%;
+  padding-top: 2rem; 
+  padding-bottom: 2rem;
+  font-weight: bold;
+  font-family: $headers-font;
+}
+
+.container-search {
+  display: flex;
+  border: none;
+  margin-top: 8px;
+  padding-top: 0.5rem; 
+  padding-bottom: 0.5rem;
+  font-family: $headers-font;
+  justify-content: center;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.faq {
+  display: flex;
+  border: none;
+  padding-top: 2rem; 
+  padding-bottom: 2rem;
+  font-weight: bold;
+}
+
+  .search-form-control {
+    position: sticky;
+    width: 100%;
+    display: flex;
+    padding: 0.5rem; 
+    margin: 0;
+  }
+  
+  .search-form-control .btn {
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    right: 8px;
+  }
+  
+  .search-form-control .form-control {
+    height: 3.0rem;
+    width: 100%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    border: 1px solid #E7E7E7;
+  }
+  
+  .search-form-control .form-control:focus {
+    border: 1px solid $my-blue;
+    outline: none !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+
+  .simple_form {
+    border: 1px solid blue;
+    width: 720px;
+  }
+
+  // .cd-faq__items { // on mibile, faq contents slides in from the right
+//   position: fixed;
+//   height: 100%;
+//   width: 90%;
+//   top: 0;
+//   right: 0;
+//   transform: translateZ(0) translateX(100%);
+//   transition: transform .3s;
+// }
+
+// .cd-faq__items--slide-in {
+//   transform: translateX(0);
+// }
+
+// @include breakpoint(md) {
+//   .cd-faq {
+//     display: flex;
+//   }
+
+  // .cd-faq__categories {
+  //   position: sticky; // fix element on scrolling
+  //   top: 20px;
+  //   width: 200px;
+  // }
+
+  // .cd-faq__items {
+  //   flex-grow: 1;
+  // }
