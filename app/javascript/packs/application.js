@@ -34,10 +34,14 @@ import {initComplaints} from '../components/complaintsForm';
 import {initComplements} from '../components/complementsForm';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
+  const revInfo = document.getElementById("review_info");
+  if (revInfo){
+    initComplaints();
+  }
+  const revCompl = document.getElementById("review_compl");
+  if (revCompl){
+    initComplements();
+  }
   initDragula();
-  initComplaints();
-  initComplements();
-});
 
+});

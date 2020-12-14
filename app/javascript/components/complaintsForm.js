@@ -38,9 +38,21 @@ const initComplaints = () => {
     const init_year = document.getElementById("complaint_year_comp").value;
     const year_field = document.getElementById("init_year_modal");      
       year_field.innerText = init_year;
-    const attachments = document.getElementById("complaint_attachment").value;
+    const categories = document.querySelectorAll(".form-check");
+    const modal_categories = document.getElementById("categories");
+      categories.forEach((element) => {
+        const input = element.querySelector(".form-check-input");
+        const label = element.querySelector(".form-check-label");
+        if (input.checked) {
+          modal_categories.innerHTML += label.innerText  + "<br />";
+        };
+      });
+    document.getElementById("attachments").value;
+    const files = document.querySelector(".form-control-file").files;
     const att_field = document.getElementById("attachments");      
-      att_field.innerText = attachments;
+    for (var i = 0; i < files.length; i++) {
+      att_field.innerHTML += (files[i].name) + "<br />";
+    };
   });
 }
 export { initComplaints }
