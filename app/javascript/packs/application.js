@@ -25,7 +25,7 @@ require("../plugins/verify.notify")
 // External imports
 import "bootstrap";
 // import Typed from 'typed.js';
-import "../plugins/typed";
+// import "../plugins/typed";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -34,14 +34,14 @@ import {initComplaints} from '../components/complaintsForm';
 import {initComplements} from '../components/complementsForm';
 
 document.addEventListener('turbolinks:load', () => {
+  
   const revInfo = document.getElementById("review_info");
   if (revInfo){
     initComplaints();
-  }
+  };
   const revCompl = document.getElementById("review_compl");
   if (revCompl){
     initComplements();
-  }
+  };
   initDragula();
-
 });
