@@ -12,19 +12,20 @@ class ComplaintsController < ApplicationController
 
   def new
     @complaint = Complaint.new
+    @cat_aduana = Category.where(sector: 'Aduana')
+    @cat_trib_int = Category.where(sector: 'Tributo Interno')
   end
 
   def create
     @complaint = Complaint.new(complaint_params)
-    # Falta testar esta parte:
     @complaint.user = current_user
-
-    if @complaint.save
-      # Alterar rota quando tiver outras paginas.
-      redirect_to root_path, notice: "Denúncia criada com sucesso!"
-    else
-      render :new
+    @complaint_categories_ids = params[:complaint][:category_ids]
+    @complaint.save
+    @complaint_categories_ids.each do |id|
+      new = ComplaintCategory.new(category_id: id.to_i, complaint_id: @complaint.id)
+      new.save
     end
+    redirect_to root_path, notice: "Denúncia criada com sucesso!"
   end
 
   def edit

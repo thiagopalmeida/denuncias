@@ -60,6 +60,10 @@
   transition: 0.3s;
 }
 
-#link-3, #link-2 {
-  border-left: 1px solid $my-light-grey;
+.select:hover {
+  background-color: $my-light-grey;
+}
+
+#link-1, #link-2 {
+  border-right: 1px solid $my-light-grey;
 }

@@ -25,13 +25,19 @@ require("../plugins/verify.notify")
 // External imports
 import "bootstrap";
 // import Typed from 'typed.js';
+import "../plugins/typed";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initDragula } from '../plugins/dragula'
+import {initComplaints} from '../components/complaintsForm';
+import {initComplements} from '../components/complementsForm';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initDragula();
+  initComplaints();
+  initComplements();
 });
+
