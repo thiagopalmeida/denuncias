@@ -2,6 +2,7 @@
     <h2>Recebida</h2>
     <table class="table">
       <thead>
+        <th>Id</th>
         <th>Área</th>
         <th>CNPJ</th>
         <th>Nome da Empresa</th>
@@ -12,7 +13,7 @@
       <tbody id="rec">
         <% @complaints.each do |complaint| %>
           <% if complaint.status == "recebida" %>
-            <tr  class='handle'>
+            <tr class='handle' data-ajax-path="<%= complaint_path(complaint) %>" data-table-source="recebida">
               <% if complaint.custom? %>
                 <td>Aduana</td>
               <% else %>
@@ -33,6 +34,7 @@
     <h2>Encaminhada</h2>
     <table class="table">
       <thead>
+        <th>Id</th>
         <th>Área</th>
         <th>CNPJ</th>
         <th>Nome da Empresa</th>
@@ -44,7 +46,7 @@
       <tbody id="enc">
         <% @complaints.each do |complaint| %>
           <% if complaint.status == "encaminhada" %>
-            <tr>
+            <tr class='handle' data-ajax-path="<%= complaint_path(complaint) %>" data-table-source="encaminhada">
               <% if complaint.custom? %>
                 <td>Aduana</td>
               <% else %>
@@ -65,6 +67,7 @@
   <h2>Finalizada</h2>
   <table class="table">
     <thead>
+      <th>Id</th>
       <th>Área</th>
       <th>CNPJ</th>
       <th>Nome da Empresa</th>
@@ -76,7 +79,7 @@
     <tbody id="fin">
       <% @complaints.each do |complaint| %>
         <% if complaint.status == "finalizada" %>
-          <tr>
+          <tr class='handle' data-ajax-path="<%= complaint_path(complaint) %>" data-table-source="finalizada">
             <% if complaint.custom? %>
               <td>Aduana</td>
             <% else %>

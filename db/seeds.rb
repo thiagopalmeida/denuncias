@@ -38,7 +38,7 @@ puts "-======= Criando usuários... =======-"
   u = User.create!(
       name: Faker::Name.name_with_middle,
       email: Faker::Internet.email,
-      cpf: Faker::CPF.pretty,
+      cpf: Faker::CPF.numeric,
       phone: Faker::PhoneNumber.cell_phone,
       role: 2,
       password: '123456'
@@ -52,7 +52,7 @@ n = 0
   u = User.create!(
       name: func[n],
       email: Faker::Internet.email,
-      cpf: Faker::CPF.pretty,
+      cpf: Faker::CPF.numeric,
       phone: Faker::PhoneNumber.cell_phone,
       role: 1,
       password: '123456'
@@ -76,7 +76,7 @@ puts "-======= Criando denúncias... =======-"
   d = Complaint.create!(
     user_id: new_user_id,
     custom: custom_type,
-    ni_comp: Faker::CNPJ.pretty,
+    ni_comp: Faker::CNPJ.numeric,
     know_ni: [true, false].sample,
     name: Faker::Restaurant.name,
     address: Faker::Address.street_name,
