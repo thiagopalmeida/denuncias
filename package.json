@@ -8,9 +8,12 @@
     "@rails/webpacker": "4.3.0",
     "async-validator": "^3.5.1",
     "bootstrap": "^4.5.3",
+    "dragula": "^3.7.3",
     "jquery": "^3.5.1",
-    "lerolero": "^0.1.0",
+    "lookforward": "^1.1.0",
     "popper.js": "^1.16.1",
+    "rough-notation": "^0.5.1",
+    "roughjs": "^4.3.1",
     "turbolinks": "^5.2.0",
     "typed.js": "^2.0.11"
   },

@@ -15,14 +15,16 @@
       </div>
 
     <%# Colocar isso apenas se houver hover? https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_display_element_hover%>
+    <p>#TEXTO OPCIONAL</p>
     <p>A Aduana está relacionada ao fluxo internacional de bens, mercadorias e 
     veículos. 
     Assim, se a sua denúncia tiver relação com importação, exportação, contrabando 
     e contrafação de mercadorias (mercadorias falsificadas / piratas), babagem 
-    de viajantes e tributos incidentes sob o comércio exterior, selecione ADUANA.</p>
+    de viajantes e tributos incidentes sobre o comércio exterior, selecione ADUANA.</p>
     <p>Se estiver relacionada a tributos internos, isto é, com os demais tributos 
     federais como Imposto de Renda, Contribuições Sociais (CSLL, PIS, Cofins, Cide etc) e 
     Previdenciárias, IPI, ITR, IOF, entre outros, selecione TRIBUTOS INTERNOS.</p>
+    <p>#FIM TEXTO OPCIONAL</p>
 
     <p>Ótimo! Agora escreva a sua denúncia com o maior nível de detalhamento que conseguir:</p>
     <%= f.input :description, label:false, :required => true %>
@@ -31,19 +33,20 @@
     em sua denúncia?</p>
     <p>Quanto mais informações puder nos fornecer, mais rápido poderemos tomar 
     as providências necessárias.</p>
+
       <div class="container", id="with_ni">
         <%=f.collection_radio_buttons :know_ni, [[true, 'Sim'] ,
         [false, 'Não']], :first, :last%>
       </div>
 
-    <%# Se não souber o NI: %>
+    <p>#Se souber o NI:</p>
+    <%= f.input :ni_comp, label:false, :required => true, :placeholder=> 'CPF ou CNPJ' %>
+
+    <p>#Se não souber o NI:</p>
     <p>Não tem problema. Para nos ajudar a localizar esta pessoa, saberia dizer 
     o seu endereço e/ou o seu nome?</p>
     <%= f.input :name, label:false, :placeholder => 'Nome' %>
     <%= f.input :address, label:false, :placeholder => 'Endereço' %>
-
-    <%# Se souber o NI: %>
-    <%= f.input :ni_comp, label:false, :required => true, :placeholder=> 'CPF ou CNPJ' %>
     
     <p>Em que ano aconteceu este fato que você acabou de nos contar?</p>
     <%= f.input :year_comp, label:false, :placeholder => 'Digite apenas números', :required => true  %>
@@ -52,7 +55,7 @@
     <div class="container">
       <%= f.collection_radio_buttons :keep,  [['Sim', 'Sim'] ,
         ['Não', 'Não'], ['Não sei', 'Não sei']], :first, :last%>
-      </div>
+    </div>
 
     Já estamos quase acabando...
               
@@ -66,12 +69,66 @@
 
     <p>Em sua opinião, quais tópicos possuem relação com sua denúncia?
       Selecione quantos desejar. </p>
-    <%# Falta inserir as categorias! %>
 
-    <p>Revise a denúncia e, quando finalizar, clique no botão "Enviar".</p>
+    <%= f.association :categories, as: :check_boxes, collection: @cat_aduana, include_hidden: false%>
+    
+    <p>#CATEGORIAS TRIBUTOS INTERNOS</p>
+    <%= f.input :categories, as: :check_boxes, collection: @cat_trib_int, include_hidden: false %>
 
-    <div class="form-actions">
-      <%= f.button :submit, 'Confirmar', class: "" %>
+  <button type="button" id="review_info" class="" data-toggle="modal" data-target="#info">
+    Revisar informações
+  </button>
+
+<!-- Modal -->
+  <div class="modal fade" id="info" tabindex="-1" aria-labelledby="infoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="infoLabel">Resumo da denúncia</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          </div>
+          <div class="modal-body">
+            <div class="area_modal"> 
+              <strong>Área à qual a denúncia se refere: </strong>
+              <p id="area_modal"></p>
+            </div>
+            <div class="description_modal"> 
+              <strong>Descrição: </strong>
+              <p id="description_modal"></p>
+            </div>
+            <div class="denounced_modal"> 
+              <strong>Nome do denunciado: </strong>
+              <p id="denounced_modal"></p>
+              <strong>Endereço do denunciado: </strong>
+              <p id="address_modal"></p>
+              <strong>CPF ou CNPJ do denunciado: </strong>
+              <p id="ni_modal"></p>
+            </div>
+            <div class="init_year_modal"> 
+              <strong>Ano de início da ocorrência: </strong>
+              <p id="init_year_modal"></p>
+            </div>
+            <div class="continuous_modal"> 
+              <strong>Ocorrência continua acontecendo? </strong>
+              <p id="continuous_modal"></p>
+            </div>
+            <div class="categories"> 
+              <strong>Tópicos relacionados à denúncia: </strong>
+              <p id="categories"></p>
+            </div>
+            <div class="attachments"> 
+              <strong>Documentos anexados: </strong>
+              <p id="attachments"></p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+            <%= f.button :submit, 'Confirmar', class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>

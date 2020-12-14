@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2020_12_12_122842) do
     t.bigint "complaint_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "with_attach"
     t.index ["complaint_id"], name: "index_complements_on_complaint_id"
   end
 
