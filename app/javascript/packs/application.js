@@ -9,7 +9,6 @@ require("@rails/activestorage").start()
 require("channels")
 require("../plugins/verify.notify")
 
-
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -26,9 +25,11 @@ require("../plugins/verify.notify")
 // External imports
 import "bootstrap";
 // import Typed from 'typed.js';
+import "../plugins/typed";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { initDragula } from '../plugins/dragula'
 import {initComplaints} from '../components/complaintsForm';
 import {initComplements} from '../components/complementsForm';
 
@@ -41,4 +42,6 @@ document.addEventListener('turbolinks:load', () => {
   if (revCompl){
     initComplements();
   }
+  initDragula();
+
 });

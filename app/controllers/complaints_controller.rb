@@ -1,6 +1,8 @@
 class ComplaintsController < ApplicationController
+  before_action :set_complaint, only: %i[show edit update]
+
   def index
-    @complaints = Complaint.all
+    @complaints = Complaint.all.includes(:user)
   end
 
   def show
@@ -26,10 +28,28 @@ class ComplaintsController < ApplicationController
     redirect_to root_path, notice: "Denúncia criada com sucesso!"
   end
 
+  def edit
+  end
+
+  def update
+    @complaint.status = params[:status]zz
+    @complaint.save
+  end
+
   private
 
   def complaint_params
-    params.require(:complaint).permit(:custom, :ni_comp, :year_comp, :keep, :description, :user_id, :know_ni, :name,
-                                      :address, :complaint_categories_id, attachments: [])
+    params.require(:complaint).permit(
+                                      :custom, :ni_comp,
+                                      :year_comp, :keep,
+                                      :description, :user_id,
+                                      :know_ni, :name,
+                                      :address, :status,
+                                      attachments: []
+                                    )
+  end
+
+  def set_complaint
+    @complaint = Complaint.find(params[:id])
   end
 end

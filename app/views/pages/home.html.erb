@@ -3,10 +3,11 @@
   <div class="container">
     <div class="text-main row justify-content-md-center">
       <div class="col">
-        <h1 class="home"> Participe do combate à sonegação</h1>
+        <h1 class="home"> Participe do combate</h1>
+        <h1 class="home" id="typed"> à sonegação </h1>
         <br>
         <div class="d-flex justify-content-center">
-          <%= link_to "Denuncie", new_user_session_path, class: "link-denuncia"  %>
+          <%= link_to "Denuncie", new_complaint_path, class: "link-denuncia js-lookforward", data:{"transition-enter": "slideup", "transition-leave": "slidedown"} %>
         </div>
       </div>
     </div>
