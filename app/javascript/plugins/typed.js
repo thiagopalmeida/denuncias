@@ -7,4 +7,6 @@ var typed = new Typed('#typed', {
   fadeOut: true,
   showCursor: false,
   smartBackspace: true,
+  loop: true,
+  loopCount: 4
 });

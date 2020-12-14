@@ -1,12 +1,75 @@
 <header class="full-header">
-  <div class="geral-header">
+  <div class="geral-header navbar navbar-expand-sm navbar-light">
     <div class="logo">
-      <%= image_tag "receita-federal-logo-4-1.png" %>
+      <%= link_to "https://www.gov.br/receitafederal/pt-br", class: "navbar-brand" do %>
+        <%= image_tag "receita-federal-logo-4-1.png" %>
+      <% end %>
     </div>
+
     <div class="opcoes-navbar">
-      <%= link_to "Legislação", new_user_session_path, class: "nav-link" %>
+      <%= link_to "Legislação", "http://www.planalto.gov.br/ccivil_03/leis/l5172compilado.htm", class: "nav-link", id:"link-1" %>
       <%= link_to "Ajuda", new_user_session_path, class: "nav-link", id:"link-2" %>
-      <%= link_to "Login", new_user_session_path, class: "nav-link", id:"link-3" %>
+      <% if user_signed_in? %>
+      <div class="dropdown">
+        <button class="btn dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.name %>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton nav-link">
+          <%= link_to "Minhas denúncias", new_user_session_path, class: "dropdown-item select" %>
+          <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "dropdown-item select" %>
+        </div>
+      <% else %>
+        <%= link_to "Entrar", new_user_session_path, class: "nav-link dropdown-item", id:"link-3" %>
+      <% end %>
+      </div>
     </div>
   </div>
 </header>
+
+
+<!-- <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div> -->
+
+<!-- <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "#", class: "navbar-brand" do %>
+    <%= image_tag "receita-federal-logo-4-1.png" %>
+    <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to "Home", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Messages", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Action", "#", class: "dropdown-item" %>
+            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div> -->
