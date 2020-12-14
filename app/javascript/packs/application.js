@@ -33,7 +33,12 @@ import {initComplaints} from '../components/complaintsForm';
 import {initComplements} from '../components/complementsForm';
 
 document.addEventListener('turbolinks:load', () => {
-  initComplaints();
-  initComplements();
+  const revInfo = document.getElementById("review_info");
+  if (revInfo){
+    initComplaints();
+  }
+  const revCompl = document.getElementById("review_compl");
+  if (revCompl){
+    initComplements();
+  }
 });
-
