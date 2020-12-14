@@ -3,6 +3,10 @@ input[type="radio"] {
   display:none;
 }
 
+input[type="checkbox"] {
+  display:none;
+}
+
 label {
   border: 1px solid #DDD;
   border-radius:5px;
@@ -21,4 +25,12 @@ label:hover {
 
 input[type="radio"]:checked + label {
   background-color:#DDD;
+}
+
+input[type="checkbox"]:checked + label {
+  background-color:#DDD;
+}
+
+legend {
+  display: none;
 }

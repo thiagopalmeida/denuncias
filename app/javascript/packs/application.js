@@ -30,13 +30,15 @@ import "../plugins/typed";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { addTransitions } from '../plugins/lookforward';
 
+// import { addTransitions } from '../plugins/lookforward';
 
+import {initComplaints} from '../components/complaintsForm';
+import {initComplements} from '../components/complementsForm';
 
 document.addEventListener('turbolinks:load', () => {
-  addTransitions();
-  // Call your functions here, e.g:
-  // initSelect2();
-  // new();
+  initComplaints();
+  initComplements();
+
 });
+
