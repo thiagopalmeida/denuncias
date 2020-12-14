@@ -4,7 +4,8 @@ class ComplaintsController < ApplicationController
   end
 
   def show
-    @complaints = Complaint.find(params[:id])
+    @complaint = Complaint.find(params[:id])
+    @admins = User.where(role: 1)
   end
 
   def new
@@ -16,7 +17,6 @@ class ComplaintsController < ApplicationController
   def create
     @complaint = Complaint.new(complaint_params)
     @complaint.user = current_user
-    # @complaint_categories_ids = params[:complaint][:complaint_categories_id]
     @complaint_categories_ids = params[:complaint][:category_ids]
     @complaint.save
     @complaint_categories_ids.each do |id|

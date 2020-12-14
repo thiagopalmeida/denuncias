@@ -1,5 +1,10 @@
 // Specific CSS for your home-page
 
+.home-video-wrapper {
+height: 100vh;
+display: flex;
+}
+
 .home_video {
  width: 100vw;
  height: 100vh;
@@ -8,19 +13,7 @@
  top: 0;
  z-index: -2;
 }
-.home_video:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, red, orange);
-  mix-blend-mode: color;
-}
 
-.home-video-wrapper {
-height: 100vh;
-display: flex;
-}
 
 h1.home {
   color: $my-light-grey;
@@ -30,25 +23,26 @@ h1.home {
 }
 
 .text-main {
-  padding: 120px;
+  padding: 240px 120px;
 }
 
-#denuncia {
-  color: $my-light-grey;
-  font-size: 56px;
-  text-align: center;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
-  font-family: $headers-font;
-  opacity: 0.6;
-  border: 1px solid $my-light-grey;
-  border-radius: 24px;
-  color-background: $my-blue;
-}
-
-#denuncia:hover {
+.link-denuncia {
   text-decoration: none;
-  outline: none;
-  opacity: 1;
-  box-shadow: 0 0 10px steelblue;
-  transition: 0.5s;
+  color: $my-light-grey;
+  font-size: 40px;
+  font-family: $headers-font;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+  border: 2px solid $my-light-grey;
+  border-radius: 16px;
+  padding: 8px 16px;
+  background-color: rgba(0,0,0,0.2);
+}
+
+.link-denuncia:hover {
+  text-decoration: none;
+  color: $my-dark-blue;
+  background-color: rgba(240,240,240,0.6);
+  text-shadow: none;
+  transition: 0.3s;
+  box-shadow: 0px 0px 4px rgba(255,255,255,0.6);
 }

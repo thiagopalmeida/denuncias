@@ -1,0 +1,53 @@
+<%= simple_form_for([@complaint, @complement]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div id="complement-form">
+    <p>Seja muito bem-vindo(a) ao canal de denúncias da Receita Federal!</p>
+    <p>Agradecemos sua colaboração.</p>
+    
+    <p>Registre as informações adicionais relativas à sua denúncia com o maior nível de detalhamento que conseguir:</p>
+    <%= f.input :additional_information, label:false, :required => true %>
+              
+    <p>Gostaria de juntar algum documento ou foto relativo à denúncia?</p>
+    <%=f.collection_radio_buttons :with_attach, [[true, 'Sim'] ,
+        [false, 'Não']], :first, :last%>
+
+    <%# Se a resposta anterior for SIM. %>
+    <%= f.input :attachment, label:false, as: :file, input_html: { multiple: true }%> 
+    </div>
+
+    <p>Revise as informações e, quando finalizar, clique no botão "Enviar".</p>
+
+    <button type="button" id="review_compl" class="" data-toggle="modal" data-target="#info">
+      Revisar informações
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="info" tabindex="-1" aria-labelledby="infoLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="infoLabel">Informações adicionais</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+              <div class="description_modal"> 
+                <strong>Detalhamento: </strong>
+                <p id="info_add_modal"></p>
+              </div>
+                <strong>Documentos anexados: </strong>
+                <p id="attachments"></p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+              <%= f.button :submit, 'Confirmar', class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

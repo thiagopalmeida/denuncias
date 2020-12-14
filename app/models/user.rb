@@ -3,9 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   has_many :complaints
   has_many :complements
 
-  validates :name, :phone, :email, :cpf, presence: true
+  # validates :name, :phone, :email, :cpf, presence: true
 end

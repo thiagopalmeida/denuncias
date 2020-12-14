@@ -1,0 +1,27 @@
+<div class="container">
+
+    <h3>Área</h3>
+    <% if @complaint.custom? %>
+      <p>Aduana</p>
+    <% else %>
+      <p>Tributo Interno</p>
+    <% end %>
+    <p>CNPJ: <%= @complaint.ni_comp %></p>
+    <p>Nome da Empresa: <%= @complaint.name %></p>
+    <p>Endereço: <%= @complaint.address %></p>
+    <p>Ano do Ilícito: <%= @complaint.year_comp %></p>
+    <p>Ilícito continua ocorrendo? <%= @complaint.keep.capitalize %></p>
+    <h3>Dados do Denunciante</h3>
+    <p>Nome: <%= @complaint.user.name %></p>
+    <p>CPF: <%= @complaint.user.cpf %></p>
+    <p>E-mail: <%= @complaint.user.email %></p>
+    <p>Descrição:</p>
+    <p><%= @complaint.description %></p>
+    <p>Attachments</p>
+    <h3>Informações administrativas</h3>
+    <p>Status da denúncia: <%= @complaint.status.capitalize %>
+    <p>Unidade Administrativa Responsável: <%= @complaint.ua %></p>
+    <p>Comentários: <%= @complaint.comment %></p>
+
+    <p>Servidor Responsável: <%= @admins.find(@complaint.admin_user).name %> </p>
+</div>

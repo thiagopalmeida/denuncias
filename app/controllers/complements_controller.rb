@@ -20,7 +20,7 @@ class ComplementsController < ApplicationController
   private
 
   def complement_params
-    params.require(:complement).permit(:additional_information,  documents: [])
+    params.require(:complement).permit(:additional_information,  attachments: [])
   end
 
 end
