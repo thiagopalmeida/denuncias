@@ -1,4 +1,8 @@
-<header class="full-header">
+<% if current_page?(root_path)%>
+  <header class="full-header-home">
+<% else %>
+  <header class="full-header-others"> 
+<%end%>
   <div class="geral-header navbar navbar-expand-sm navbar-light">
     <div class="logo">
       <%= link_to "https://www.gov.br/receitafederal/pt-br", class: "navbar-brand" do %>
@@ -8,7 +12,7 @@
 
     <div class="opcoes-navbar">
       <%= link_to "Legislação", "http://www.planalto.gov.br/ccivil_03/leis/l5172compilado.htm", class: "nav-link", id:"link-1" %>
-      <%= link_to "Ajuda", new_user_session_path, class: "nav-link", id:"link-2" %>
+      <%= link_to "Ajuda", help_path, class: "nav-link", id:"link-2" %>
       <% if user_signed_in? %>
       <div class="dropdown">
         <button class="btn dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

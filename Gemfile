@@ -64,3 +64,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Install Faker Gem
 gem 'cpf_faker'
 gem 'faker'
+
+#Cloudinary
+gem 'cloudinary', '~> 1.16.0'
