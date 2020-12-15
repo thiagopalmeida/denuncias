@@ -69,7 +69,5 @@ gem 'faker'
 # Install Blazer e Rails Admin
 gem 'rails_admin'
 gem 'blazer'
-=======
 #Cloudinary
 gem 'cloudinary', '~> 1.16.0'
->>>>>>> 47dea61f576ec761c27eb21140344d4f9fdb27bf
