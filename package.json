@@ -16,7 +16,6 @@
     "popper.js": "^1.16.1",
     "rough-notation": "^0.5.1",
     "roughjs": "^4.3.1",
-    "scrollbooster": "^3.0.2",
     "turbolinks": "^5.2.0",
     "typed.js": "^2.0.11"
   },

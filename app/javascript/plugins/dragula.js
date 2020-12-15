@@ -17,7 +17,15 @@ const initDragula = () => {
       else
         return false;
       end
+      },
+    moves: function moves (el, source, handle, sibling) {
+      console.log(source.id);
+      if (source.id === "fin") {
+        return false;
       }
+      else
+        return true;
+    }
   }
   const drake = dragula(tabelas, opcao);
 

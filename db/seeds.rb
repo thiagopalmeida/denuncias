@@ -40,7 +40,7 @@ puts "-======= Criando usuários... =======-"
       email: Faker::Internet.email,
       cpf: Faker::CPF.numeric,
       phone: Faker::PhoneNumber.cell_phone,
-      role: 2,
+      admin: false,
       password: '123456'
       )
   puts "Usuário #{u.name} criado com CPF #{u.cpf}"
@@ -54,7 +54,7 @@ n = 0
       email: Faker::Internet.email,
       cpf: Faker::CPF.numeric,
       phone: Faker::PhoneNumber.cell_phone,
-      role: 1,
+      admin: true,
       password: '123456'
       )
   n += 1
@@ -71,7 +71,7 @@ puts "-======= Criando denúncias... =======-"
   url = 'https://baconipsum.com/api/?type=all-meat&paras=2&start-with-lorem=1'
   text = JSON.parse(open(url).read)
   desc = text.join
-  admin = User.where(role: 1).sample
+  admin = User.where(admin: true).sample
 
   d = Complaint.create!(
     user_id: new_user_id,

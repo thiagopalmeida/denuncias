@@ -1,6 +1,6 @@
 .gu-mirror {
   background-color: grey;
-  color:blue;
+  color:black;
   position: fixed !important;
   margin: 0 !important;
   z-index: 9999 !important;
@@ -18,7 +18,7 @@
   user-select: none !important;
 }
 .gu-transit {
-  background-color: $yellow;
+  background-color: darkgrey;
   opacity: 0.6;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
   filter: alpha(opacity=20);
