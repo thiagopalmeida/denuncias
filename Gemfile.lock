@@ -117,15 +117,12 @@ GEM
       sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-<<<<<<< HEAD
     haml (5.2.1)
       temple (>= 0.8.0)
       tilt
-=======
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
->>>>>>> 47dea61f576ec761c27eb21140344d4f9fdb27bf
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.1)
@@ -167,11 +164,8 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.14.2)
     msgpack (1.3.3)
-<<<<<<< HEAD
     nested_form (0.3.2)
-=======
     netrc (0.11.0)
->>>>>>> 47dea61f576ec761c27eb21140344d4f9fdb27bf
     nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
