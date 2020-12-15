@@ -65,5 +65,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'cpf_faker'
 gem 'faker'
 
+# Install Blazer e Rails Admin
+gem 'rails_admin'
+gem 'blazer'
 #Cloudinary
 gem 'cloudinary', '~> 1.16.0'

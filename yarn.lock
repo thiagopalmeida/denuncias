@@ -6474,11 +6474,6 @@ schema-utils@^2.5.0, schema-utils@^2.6.5, schema-utils@^2.6.6, schema-utils@^2.7
     ajv "^6.12.4"
     ajv-keywords "^3.5.2"
 
-scrollbooster@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/scrollbooster/-/scrollbooster-3.0.2.tgz#c1f0da4322321a165c70751b51e13f62177f26be"
-  integrity sha512-WZjvtSxCgCEbfc+9DmxfhuK6ACOqQr3jymniIp4I9Hh0mIEK1CKS4t+d7iPdeuILP5Q/we13h4YUHD0o+gPiRg==
-
 scss-tokenizer@^0.2.3:
   version "0.2.3"
   resolved "https://registry.npmjs.org/scss-tokenizer/-/scss-tokenizer-0.2.3.tgz"
