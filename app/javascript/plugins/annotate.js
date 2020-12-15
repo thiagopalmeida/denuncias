@@ -1,6 +1,6 @@
-import { annotate } from 'rough-notation';
+import { annotate, annotationGroup } from 'rough-notation';
 
-const e = document.querySelector('#typed');
-const annotation = annotate(e, { animationDelay: 10000, type: 'highlight', color: '#007cbc' });
-annotation.show();
-annotation.hide();
+const a1 = annotate(document.querySelector('#dest-1'), { type: 'underline', color: '#007cbc' });
+const a2 = annotate(document.querySelector('#dest-2'), { type: 'underline', color: '#007cbc' });
+const ag = annotationGroup([a1, a2]);
+ag.show();

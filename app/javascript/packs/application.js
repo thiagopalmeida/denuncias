@@ -25,6 +25,7 @@ require("../plugins/verify.notify")
 // External imports
 import "bootstrap";
 // import Typed from 'typed.js';
+
 // import "../plugins/typed";
 
 // Internal imports, e.g:
@@ -33,13 +34,22 @@ import { initDragula } from '../plugins/dragula';
 import { loadTyped } from '../plugins/typed';
 import {initComplaints} from '../components/complaintsForm';
 import {initComplements} from '../components/complementsForm';
+import { show } from '../components/show';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
+
+  const revInfo = document.getElementById("review_info");
+  if (revInfo){
+    initComplaints();
+  };
+  const revCompl = document.getElementById("review_compl");
+  if (revCompl){
+    initComplements();
+  };
   initDragula();
   initComplaints();
   initComplements();
   loadTyped();
+  show('.button-1', '#element-hide-1');
+  show('.button-2', '#element-hide-2');
 });
-

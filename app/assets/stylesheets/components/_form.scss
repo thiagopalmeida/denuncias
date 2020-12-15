@@ -34,3 +34,41 @@ input[type="checkbox"]:checked + label {
 legend {
   display: none;
 }
+
+#foto-1, #foto-2, #foto-3, #foto-4, #foto-5, #foto-6, #foto-7 {
+  width: 100vw;
+  height: 640px;
+  object-fit: cover;
+  z-index: -2;
+  position: absolute;
+}
+
+.box-form-ext {
+  background-color: $my-light-grey;
+  opacity: 0.9;
+  border-radius: 8px;
+  width: 60vw;
+  box-shadow: 2px 2px 4px rgba(20, 20, 20, 0.4);
+}
+
+.box-form-int {
+  padding: 16px;
+  text-align: center;
+}
+
+.space {
+  height: 400px;
+}
+
+textarea.form-control {
+  height: 400px;
+}
+
+.text-without-box {
+  text-align: center;
+}
+
+.borda {
+  border: 2px solid black;
+}
+
