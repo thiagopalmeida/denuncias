@@ -47,8 +47,6 @@ document.addEventListener('turbolinks:load', () => {
     initComplements();
   };
   initDragula();
-  initComplaints();
-  initComplements();
   loadTyped();
   show('.button-1', '#element-hide-1');
   show('.button-2', '#element-hide-2');

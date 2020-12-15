@@ -1,15 +1,17 @@
 
 const show = (element, elementhide) => {
-  const button = document.querySelector(element);
-  button.addEventListener('click', (e) => {
-    const paraMostrar = document.querySelector(elementhide);
-      if (paraMostrar.style.display === 'none') {
-        paraMostrar.style.display = 'block';
-        paraMostrar.scrollIntoView({ block: 'start',  behavior: 'smooth' });
-      } else {
-        paraMostrar.scrollIntoView({ block: 'start',  behavior: 'smooth' });
-      };
-  });
+  if (document.querySelector(element)) {
+    const button = document.querySelector(element);
+    button.addEventListener('click', (e) => {
+      const paraMostrar = document.querySelector(elementhide);
+        if (paraMostrar.style.display === 'none') {
+          paraMostrar.style.display = 'block';
+          paraMostrar.scrollIntoView({ block: 'start',  behavior: 'smooth' });
+        } else {
+          paraMostrar.scrollIntoView({ block: 'start',  behavior: 'smooth' });
+        };
+    });
+  };
 };
 
 const go = () => {
@@ -19,7 +21,6 @@ const go = () => {
     element.scrollIntoView({ block: 'start',  behavior: 'smooth' });
   });
 }
-
 
 
 export { show };
