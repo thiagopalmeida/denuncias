@@ -1,10 +1,10 @@
+<div id="wrapper">
 <%= simple_form_for(@complaint) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
 
   <div class="image-background">
-    <%= image_tag "img_teste.jpg", id:"foto-1" %>
     <div class="container">
       <div class="row align-items-center borda" id="form-1">
         <div class="col d-flex justify-content-center borda m-5 box-form-ext">
@@ -18,11 +18,11 @@
             <br>
             <p>O trabalho da Receita Federal pode ser dividido em duas grandes áreas:
             <span id="dest-1">ADUANA</span> e <span id="dest-2">TRIBUTOS INTERNOS.</span></p>
+            <div class="container m-3 button-1">
+              <%=f.collection_radio_buttons :custom, [[true, 'Aduana'] ,
+              [false, 'Tributos Internos']], :first, :last%>
+            </div>
             <p>A qual das duas áreas sua denúncia se refere?</p>
-              <div class="container m-3 button-1">
-                <%=f.collection_radio_buttons :custom, [[true, 'Aduana'] ,
-                [false, 'Tributos Internos']], :first, :last%>
-              </div>
           </div>
       </div>
     </div>
@@ -39,8 +39,6 @@
       federais como Imposto de Renda, Contribuições Sociais (CSLL, PIS, Cofins, Cide etc) e
       Previdenciárias, IPI, ITR, IOF, entre outros, selecione TRIBUTOS INTERNOS.</p>
       <p>#FIM TEXTO OPCIONAL</p> -->
-  <div class="space element-hide-1">
-  </div>
 
   <div id="element-hide-1" style="display: none;">
     <div class="image-background">
@@ -60,8 +58,6 @@
     </div>
   </div>
 
-  <div class="space element-hide-2">
-  </div>
 
   <div id="element-hide-2" style="display: none;">
     <div class="image-background">
@@ -75,6 +71,20 @@
               <div class="container", id="with_ni">
               <%=f.collection_radio_buttons :know_ni, [[true, 'Sim'] ,
               [false, 'Não']], :first, :last%>
+              <br>
+              </div>
+              <div id="element-hide-3a" style="display: none;">
+                <p>#Se souber o NI:</p>
+                <%= f.input :ni_comp, label:false, :required => true, :placeholder=> 'CPF ou CNPJ' %>
+                <span class="btn btn-primary button-3a">OK</span>
+              </div>
+              <div id="element-hide-3b" style="display: none;">
+                <p>#Se não souber o NI:</p>
+                <p>Não tem problema. Para nos ajudar a localizar esta pessoa, saberia dizer
+                o seu endereço e/ou o seu nome?</p>
+                <%= f.input :name, label:false, :placeholder => 'Nome' %>
+                <%= f.input :address, label:false, :placeholder => 'Endereço' %>
+                <span class="btn btn-primary button-3b">OK</span>
               </div>
             </div>
           </div>
@@ -88,46 +98,17 @@
   </div>
 
 
-  <div class="space element-hide-3">
-  </div>
-
-  <div id="element-hide-3">
+  <div id="element-hide-4" style="display: none;">
     <div class="image-background">
       <%= image_tag "img_teste.jpg", id:"foto-4" %>
       <div class="container">
         <div class="row align-items-center borda", id="form-4">
           <div class="col d-flex justify-content-center borda m-5 box-form-ext">
             <div id="complaint-form" class="box-form-int borda">
-              <p>#Se souber o NI:</p>
-              <%= f.input :ni_comp, label:false, :required => true, :placeholder=> 'CPF ou CNPJ' %>
-              <br>
-              <p>#Se não souber o NI:</p>
-              <p>Não tem problema. Para nos ajudar a localizar esta pessoa, saberia dizer
-              o seu endereço e/ou o seu nome?</p>
-              <%= f.input :name, label:false, :placeholder => 'Nome' %>
-              <%= f.input :address, label:false, :placeholder => 'Endereço' %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="space element-hide-4">
-  </div>
-
-  <div id="element-hide-4">
-    <div class="image-background">
-      <%= image_tag "img_teste.jpg", id:"foto-5" %>
-      <div class="container">
-        <div class="row align-items-center borda", id="form-5">
-          <div class="col d-flex justify-content-center borda m-5 box-form-ext">
-            <div id="complaint-form" class="box-form-int borda">
               <p>Em que ano aconteceu este fato que você acabou de nos contar?</p>
               <%= f.input :year_comp, label:false, :placeholder => 'Digite apenas números', :required => true  %>
               <p>E você acha que ainda está acontecendo?</p>
-              <div class="container">
+              <div class="container button-4">
                 <%= f.collection_radio_buttons :keep,  [['Sim', 'Sim'] ,
                   ['Não', 'Não'], ['Não sei', 'Não sei']], :first, :last%>
               </div>
@@ -139,23 +120,22 @@
   </div>
 
 
-  <div class="space element-hide-5">
-  </div>
-
-  <div id="element-hide-5">
+  <div id="element-hide-5" style="display: none;">
     <div class="image-background">
-      <%= image_tag "img_teste.jpg", id:"foto-6" %>
+      <%= image_tag "img_teste.jpg", id:"foto-5" %>
       <div class="container">
-        <div class="row align-items-center borda", id="form-6">
+        <div class="row align-items-center borda", id="form-5">
           <div class="col d-flex justify-content-center borda m-5 box-form-ext">
             <div id="complaint-form" class="box-form-int borda">
               <h2>Já estamos quase acabando...</h2>
               <p>Gostaria de juntar algum documento ou foto relativo à denúncia?</p>
               <%=f.collection_radio_buttons :with_attach, [[true, 'Sim'] ,
                   [false, 'Não']], :first, :last%>
-
+              <div id="element-hide-6a" style="display: none;">
               <%# Se a resposta anterior for SIM. %>
               <%= f.input :attachment, label:false, as: :file, input_html: { multiple: true }%>
+              <span class="btn btn-primary button-5">OK</span>
+              </div>
             </div>
           </div>
         </div>
@@ -163,23 +143,22 @@
     </div>
   </div>
 
-  <div class="space element-hide-6">
-  </div>
 
-  <div id="element-hide-6">
+  <div id="element-hide-7" style="display: none;">
     <div class="image-background">
-      <%= image_tag "img_teste.jpg", id:"foto-7" %>
+      <%= image_tag "img_teste.jpg", id:"foto-6" %>
       <div class="container">
-        <div class="row align-items-center borda", id="form-7">
+        <div class="row align-items-center borda", id="form-6">
           <div class="col d-flex justify-content-center borda m-5 box-form-ext">
             <div id="complaint-form" class="box-form-int borda">
               <p>Em sua opinião, quais tópicos possuem relação com sua denúncia?Selecione quantos desejar. </p>
-
-              <%= f.association :categories, as: :check_boxes, collection: @cat_aduana, include_hidden: false%>
-
+              <div id="categories-custom" style="display: none;">
+                <%= f.association :categories, as: :check_boxes, collection: @cat_aduana, include_hidden: false %>
+              </div>
               <p>#CATEGORIAS TRIBUTOS INTERNOS</p>
-              <%= f.input :categories, as: :check_boxes, collection: @cat_trib_int, include_hidden: false %>
-
+              <div id="categories-intern" style="display: none;">
+                <%= f.input :categories, as: :check_boxes, collection: @cat_trib_int, include_hidden: false %>
+              </div>
               <button type="button" id="review_info" class="" data-toggle="modal" data-target="#info">
                 Revisar informações
               </button>
@@ -196,6 +175,7 @@
 
 
   <!-- Modal -->
+  <div id="element-hide-8" style="display: none;">
     <div class="modal fade" id="info" tabindex="-1" aria-labelledby="infoLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content">
@@ -243,9 +223,6 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
               <%= f.button :submit, 'Confirmar', class: "btn btn-primary" %>
-
-
-
             </div>
           </div>
         </div>
@@ -253,3 +230,4 @@
     </div>
   </div>
 <% end %>
+</div>

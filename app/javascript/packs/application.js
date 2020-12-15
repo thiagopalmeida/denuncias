@@ -34,7 +34,7 @@ import { initDragula } from '../plugins/dragula';
 import { loadTyped } from '../plugins/typed';
 import {initComplaints} from '../components/complaintsForm';
 import {initComplements} from '../components/complementsForm';
-import { show } from '../components/show';
+import { show, showNoMove, showCategory } from '../components/show';
 
 document.addEventListener('turbolinks:load', () => {
 
@@ -50,4 +50,14 @@ document.addEventListener('turbolinks:load', () => {
   loadTyped();
   show('.button-1', '#element-hide-1');
   show('.button-2', '#element-hide-2');
+  showNoMove('#complaint_know_ni_true', '#element-hide-3a');
+  showNoMove('#complaint_know_ni_false', '#element-hide-3b');
+  show('.button-3a', '#element-hide-4');
+  show('.button-3b', '#element-hide-4');
+  show('.button-4', '#element-hide-5');
+  showNoMove('#complaint_with_attach_true', '#element-hide-6a');
+  show('#complaint_with_attach_false', '#element-hide-7');
+  show('.button-5', '#element-hide-7');
+  showNoMove('#review_info', '#element-hide-8');
+  showCategory();
 });

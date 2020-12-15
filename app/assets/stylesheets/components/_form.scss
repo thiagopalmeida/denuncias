@@ -35,12 +35,22 @@ legend {
   display: none;
 }
 
+#wrapper {
+  background-color: rgba(160,160,160,0.1);
+}
+
 #foto-1, #foto-2, #foto-3, #foto-4, #foto-5, #foto-6, #foto-7 {
   width: 100vw;
   height: 640px;
+
   object-fit: cover;
   z-index: -2;
   position: absolute;
+}
+
+#element-hide-1, #element-hide-2, #element-hide-4, #element-hide-5, #element-hide-7 {
+  margin-top: 400px;
+  margin-bottom: 40px;
 }
 
 .box-form-ext {
@@ -56,10 +66,6 @@ legend {
   text-align: center;
 }
 
-.space {
-  height: 400px;
-}
-
 textarea.form-control {
   height: 400px;
 }
@@ -68,7 +74,23 @@ textarea.form-control {
   text-align: center;
 }
 
+.complaint_categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.form-check-label {
+  height: 136px;
+  width: 176px;
+  border: 16px;
+  padding: 8px;
+  border: 1px solid $my-dark-blue;
+  align-items: stretch;
+  text-align: center;
+}
+
 .borda {
   border: 2px solid black;
 }
+
 
