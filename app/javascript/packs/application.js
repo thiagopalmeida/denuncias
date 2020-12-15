@@ -25,6 +25,7 @@ require("../plugins/verify.notify")
 // External imports
 import "bootstrap";
 // import Typed from 'typed.js';
+
 // import "../plugins/typed";
 
 // Internal imports, e.g:
@@ -34,6 +35,7 @@ import { loadTyped } from '../plugins/typed'
 import { initScroll } from '../plugins/scroll_boster'
 import {initComplaints} from '../components/complaintsForm';
 import {initComplements} from '../components/complementsForm';
+import { show } from '../components/show';
 
 document.addEventListener('turbolinks:load', () => {
   
@@ -50,5 +52,7 @@ document.addEventListener('turbolinks:load', () => {
   initComplements();
   loadTyped();
   initScroll();
+  show('.button-1', '#element-hide-1');
+  show('.button-2', '#element-hide-2');
 
 });
