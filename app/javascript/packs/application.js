@@ -27,18 +27,22 @@ require("../plugins/verify.notify")
 import "bootstrap";
 // import Typed from 'typed.js';
 import "../plugins/typed";
+// import "../plugins/annotate";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 // import { addTransitions } from '../plugins/lookforward';
+import { show, go } from '../components/show';
 
-import {initComplaints} from '../components/complaintsForm';
-import {initComplements} from '../components/complementsForm';
+// import {initComplaints} from '../components/complaintsForm';
+// import {initComplements} from '../components/complementsForm';
 
 document.addEventListener('turbolinks:load', () => {
-  initComplaints();
-  initComplements();
-
+  // initComplaints();
+  // initComplements();
+  show('.button-1', '#element-hide-1');
+  go();
+  show('.button-2', '#element-hide-2');
 });
 
