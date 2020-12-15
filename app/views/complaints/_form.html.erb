@@ -2,7 +2,6 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-
   <div class="image-background">
     <%= image_tag "img_teste.jpg", id:"foto-1" %>
     <div class="container">
@@ -179,20 +178,15 @@
 
               <p>#CATEGORIAS TRIBUTOS INTERNOS</p>
               <%= f.input :categories, as: :check_boxes, collection: @cat_trib_int, include_hidden: false %>
-
-              <button type="button" id="review_info" class="" data-toggle="modal" data-target="#info">
-                Revisar informações
-              </button>
+                <button type="button" id="review_info" class="" data-toggle="modal" data-target="#info">
+                  Revisar informações
+                </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-
-
-
 
 
   <!-- Modal -->

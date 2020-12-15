@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :complaints do
     resources :complements, only: %i[new create]
+    get 'ask_login', on: :collection
   end
   get 'help', to: 'pages#help'
 end
