@@ -44,5 +44,6 @@ const initComplaints = () => {
         att_field.innerText = attachments;
     });
   }
+
 }
 export { initComplaints }
