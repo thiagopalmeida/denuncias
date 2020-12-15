@@ -4,7 +4,10 @@ const show = (element, elementhide) => {
   button.addEventListener('click', (e) => {
     const paraMostrar = document.querySelector(elementhide);
       if (paraMostrar.style.display === 'none') {
-      paraMostrar.style.display = 'block';
+        paraMostrar.style.display = 'block';
+        paraMostrar.scrollIntoView({ block: 'start',  behavior: 'smooth' });
+      } else {
+        paraMostrar.scrollIntoView({ block: 'start',  behavior: 'smooth' });
       };
   });
 };
@@ -19,4 +22,4 @@ const go = () => {
 
 
 
-export { show, go };
+export { show };

@@ -33,7 +33,7 @@ import "../plugins/typed";
 // import { initSelect2 } from '../components/init_select2';
 
 // import { addTransitions } from '../plugins/lookforward';
-import { show, go } from '../components/show';
+import { show } from '../components/show';
 
 // import {initComplaints} from '../components/complaintsForm';
 // import {initComplements} from '../components/complementsForm';
@@ -42,7 +42,6 @@ document.addEventListener('turbolinks:load', () => {
   // initComplaints();
   // initComplements();
   show('.button-1', '#element-hide-1');
-  go();
   show('.button-2', '#element-hide-2');
 });
 
