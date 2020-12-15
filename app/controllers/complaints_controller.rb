@@ -32,7 +32,7 @@ class ComplaintsController < ApplicationController
   end
 
   def update
-    @complaint.status = params[:status]zz
+    @complaint.status = params[:status]
     @complaint.save
   end
 
