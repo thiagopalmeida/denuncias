@@ -64,3 +64,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Install Faker Gem
 gem 'cpf_faker'
 gem 'faker'
+
+# Install Blazer e Rails Admin
+gem 'rails_admin'
+gem 'blazer'
