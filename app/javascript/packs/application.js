@@ -30,6 +30,8 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initDragula } from '../plugins/dragula'
+import { loadTyped } from '../plugins/typed'
+import { initScroll } from '../plugins/scroll_boster'
 import {initComplaints} from '../components/complaintsForm';
 import {initComplements} from '../components/complementsForm';
 
@@ -44,4 +46,9 @@ document.addEventListener('turbolinks:load', () => {
     initComplements();
   };
   initDragula();
+  initComplaints();
+  initComplements();
+  loadTyped();
+  initScroll();
+
 });
