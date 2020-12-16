@@ -1,0 +1,49 @@
+  <div class="container-fluid dash">
+    <div class="row justify-content-center">
+      <div class="">
+        <h4 class="text-center font-weight-bold">Minhas Denúncias</h4>
+        <br>
+        <% if @my_complaints.nil?%>
+          <% redirect_to root_path, notice: "Nenhuma denúncia encontrada." %>
+        <% else %>
+          <% @my_complaints.each do |complaint| %>
+          <div class="container board p-2">
+            <table class="table table-hover table-borderless">
+              <thead class="thead-light">
+                <th>Área</th>
+                <th>CNPJ</th>
+                <th>Nome da Empresa</th>
+                <th>Endereço</th>
+                <th>Ano do Ilícito</th>
+                <th>Ilícito continua ocorrendo?</th>
+              </thead>
+              <tbody id="my_comp">
+                <% if complaint.custom? %>
+                  <td>Aduana</td>
+                <% else %>
+                  <td>Tributo Interno</td>
+                <% end %>
+                <td><%= complaint.ni_comp %></td>
+                <td><%= complaint.name %></td>
+                <td><%= complaint.address %></td>
+                <td><%= complaint.year_comp %></td>
+                <td><%= complaint.keep.capitalize %></td>
+              </tbody>
+            </table>
+            <table class="table table-hover table-borderless">
+              <thead class="thead-light">
+                <th>Detalhamento da denúncia</th>
+              </thead>
+              <tbody id="my_comp">
+                <td><%= complaint.description %></td>
+              </tbody>
+            </table>
+            <button type="button" class="btn btn-secondary">
+            <%= link_to 'Complementar denúncia', new_complaint_complement_path(complaint), class: "text-center text-white" %>
+            </button>
+          </div>
+          <% end %>
+        <% end %> 
+      </div>
+    </div>
+  </div>

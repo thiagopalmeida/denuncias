@@ -37,6 +37,10 @@ class ComplaintsController < ApplicationController
     @complaint.save
   end
 
+  def my_complaints
+    @my_complaints = Complaint.where(user_id: current_user.id)
+  end
+
   private
 
   def complaint_params
@@ -54,4 +58,5 @@ class ComplaintsController < ApplicationController
   def set_complaint
     @complaint = Complaint.find(params[:id])
   end
+
 end
