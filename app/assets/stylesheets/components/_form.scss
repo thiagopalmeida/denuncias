@@ -55,16 +55,8 @@ legend {
   height: 100vh;
 }
 
-#foto-2, #foto-3, #foto-4, #foto-5, #foto-6, #foto-7 {
-  width: 100vw;
-  height: 660px;
-  object-fit: cover;
-  z-index: -2;
-  position: absolute;
-}
-
 #element-hide-1, #element-hide-2, #element-hide-4, #element-hide-5, #element-hide-7 {
-  margin-top: 400px;
+  margin-top: 360px;
   margin-bottom: 40px;
 }
 
@@ -83,7 +75,8 @@ legend {
 }
 
 textarea.form-control {
-  height: 400px;
+  height: 248px;
+  max-height: 248px;
 }
 
 .text-without-box {
@@ -114,7 +107,7 @@ textarea.form-control {
   height: 400px;
   background-color: rgba(10,80,200,0.05);
   border-radius: 12px;
-  box-shadow: 2px 2px 4px rgba(20, 20, 20, 0.4);
+  box-shadow: 1px 1px 6px rgba(20, 20, 20, 0.3);
 }
 
 .height-row {
@@ -150,7 +143,7 @@ textarea.form-control {
 }
 
 
-#foto-1 {
+#foto-1, #foto-2, #foto-3, #foto-4, #foto-5, #foto-6, #foto-7 {
   object-fit: cover;
   z-index: -2;
   position: absolute;
@@ -162,7 +155,7 @@ textarea.form-control {
 }
 
 .button-2 {
-  width: inherit;
+  width: -webkit-fill-available;
 }
 
 #form-2 {
@@ -172,6 +165,8 @@ textarea.form-control {
 }
 .img-form {
   background-image: linear-gradient(rgba(0,20,80,0.2), rgba(0,20,80,0.4));
+  border-radius: 12px 0 0 12px;
+  max-height: 400px;
 }
 
 .img-form img {
@@ -184,4 +179,7 @@ textarea.form-control {
   margin: 2px;
 }
 
+#container-categories {
+  height: auto;
+}
 
