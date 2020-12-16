@@ -4,6 +4,7 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
 
+
   <div class="container borda">
     <div class="container row intern-container borda p-0">
       <div class="col-3 borda p-0 img-form">
@@ -20,6 +21,7 @@
           <div class="borda button-1 text-center">
             <%=f.collection_radio_buttons :custom, [[true, 'Aduana'] ,
             [false, 'Tributos Internos']], :first, :last%>
+
           </div>
         </div>
       </div>
@@ -159,22 +161,20 @@
                 <%= f.association :categories, as: :check_boxes, collection: @cat_aduana, include_hidden: false %>
               </div>
               <p>#CATEGORIAS TRIBUTOS INTERNOS</p>
+
               <div id="categories-intern" style="display: none;">
                 <%= f.association :categories, as: :check_boxes, collection: @cat_trib_int, include_hidden: false %>
               </div>
               <button type="button" id="review_info" class="" data-toggle="modal" data-target="#info">
                 Revisar informações
               </button>
+
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-
-
-
 
 
   <!-- Modal -->
