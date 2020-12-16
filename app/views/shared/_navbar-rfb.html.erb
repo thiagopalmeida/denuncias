@@ -13,10 +13,10 @@
         <%= image_tag "receita-federal-logo-4-1.png" %>
       <% end %>
     </div>
-  <% if current_page?(new_complaint_path)%>
-    <div class="opcoes-navbar-color">
-  <% else %>
+  <% if current_page?(root_path)%>
     <div class="opcoes-navbar">
+  <% else %>
+    <div class="opcoes-navbar-color">
   <%end%>
       <%= link_to "Legislação", "http://www.planalto.gov.br/ccivil_03/leis/l5172compilado.htm", class: "nav-link", id:"link-1" %>
       <%= link_to "Ajuda", help_path, class: "nav-link", id:"link-2" %>
