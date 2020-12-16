@@ -1,3 +1,9 @@
+/** Verify.js - v0.0.1 - 2013/06/12
+ * https://github.com/jpillora/verify
+ * Copyright (c) 2013 Jaime Pillora - MIT
+ */
+
+(function(window,document,undefined) {
 (function(window,document,undefined) {
 'use strict';
 
@@ -630,7 +636,7 @@ function ajaxHelper(userOpts, r) {
 
   function onErrorDefault(e) {
     log("ajax error");
-    r.callback("Ocorreu um erro");
+    r.callback("There has been an error");
   }
 
   var userCallbacks = {
@@ -2285,7 +2291,7 @@ log("plugin added.");
      */
     currency: {
       regex: /^\-?\$?\d{1,2}(,?\d{3})*(\.\d+)?$/,
-      message: "Invalid monetary value"
+      message: "Esse não é um valor válido"
     },
     email: {
       regex: /^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
@@ -2293,7 +2299,7 @@ log("plugin added.");
     },
     url: {
       regex: /^https?:\/\/[\-A-Za-z0-9+&@#\/%?=~_|!:,.;]*[\-A-Za-z0-9+&@#\/%=~_|]/,
-      message: "URL inváida"
+      message: "URL inválida"
     },
     alphanumeric: {
       regex: /^[0-9A-Za-z]+$/,
@@ -2313,7 +2319,7 @@ log("plugin added.");
     },
     postcode: {
       regex: /^\d{4}$/,
-      message: "Invalid postcode"
+      message: "CEP Inválido"
     },
     date: {
       fn: function(r) {
@@ -2359,9 +2365,9 @@ log("plugin added.");
         return true;
       },
       messages: {
-        "all": "Este campo é obrigatório",
+        "all": "Esse campo é obrigatório",
         "multiple": "Por favor, selecione uma opção",
-        "single": "Selecione uma opção"
+        "single": "Por favor, marque uma opção"
       }
     },
     regex: {
@@ -2371,7 +2377,7 @@ log("plugin added.");
           var str = r.args[0];
           re = new RegExp(str);
         } catch(error) {
-          r.warn("Invalid regex: " + str);
+          r.warn("Regex inválido: " + str);
           return true;
         }
 
@@ -2379,7 +2385,7 @@ log("plugin added.");
           return r.args[1] || r.message;
         return true;
       },
-      message: "Esse formato é inválido"
+      message: "Formato inválido"
     },
     //an alias
     pattern: {
@@ -2387,7 +2393,7 @@ log("plugin added.");
     },
     asyncTest: function(r) {
 
-      r.prompt(r.field, "Por favor aguarde...");
+      r.prompt(r.field, "Aguarde...");
       setTimeout(function() {
         r.callback();
       },2000);
@@ -2397,34 +2403,34 @@ log("plugin added.");
       r.val(r.val().replace(/\D/g,''));
       var v = r.val();
       if(!v.match(/^\+?[\d\s]+$/))
-        return "Use números e espaços apenas";
+        return "Apenas números e espaços";
       if(v.match(/^\+/))
         return true; //allow all international
       if(!v.match(/^0/))
-        return "O número precisa começar com 0";
+        return "Número deve começar com 0";
       if(v.replace(/\s/g,"").length !== 10)
-        return "Precisa ter 10 números";
+        return "Deve ter 10 dígitos";
       return true;
     },
     telefone: function(r) {
       r.val(r.val().replace(/\D/g,''));
       var v = r.val();
       if(!v.match(/^(?:(?:|00)?(55))?(?:([1-9][0-9]))?(?:((?:9\d|[2-9])\d{3})(\d{4}))$/))
-        return "Use apenas números para um telefone válido";
+        return "Esse não é número de telefone válido.";
       return true;
     },
     cpf: function(r) {
       r.val(r.val().replace(/\D/g,''));
       var v = r.val();
       if(!v.match(/^\d{3}\d{3}\d{3}\d{2}$/))
-        return "CPF inválido, use apenas números"
+        return "Esse não é um CPF válido"
       return true;
     },
     cpf_cnpj: function(r) {
       r.val(r.val().replace(/\D/g,''));
       var v = r.val();
       if(!v.match(/(^\d{3}\d{3}\d{3}\d{2}$)|(^\d{2}\d{3}\d{3}\d{4}\d{2}$)/))
-        return "Dado inválido, insira CPF/CNPJ apenas com números"
+        return "Esse não é um CPF/CNPJ válido"
       return true;
     },
     size: function(r){
@@ -2432,14 +2438,14 @@ log("plugin added.");
       if(exactOrLower !== undefined && upper === undefined) {
         var exact = parseInt(exactOrLower, 10);
         if(r.val().length !== exact)
-          return  "Precisa ter "+exact+" caracteres";
+          return  "Deve ter "+exact+" caracteres";
       } else if(exactOrLower !== undefined && upper !== undefined) {
         var lower = parseInt(exactOrLower, 10);
         upper = parseInt(upper, 10);
         if(v.length < lower || upper < v.length)
-          return "Precisa estar entre "+lower+" e "+upper+" caracteres";
+          return "Deve estar entre"+lower+" e "+upper+" caracteres";
       } else {
-        r.warn("Tamanho do parâmetro com erro no campo: " + r.field.attr('name'));
+        r.warn("parâmetro de validação de tamanho com erro no campo: " + r.field.attr('name'));
       }
 
       return true;
@@ -2447,13 +2453,13 @@ log("plugin added.");
     min: function(r) {
       var v = r.val(), min = parseInt(r.args[0], 10);
       if(v.length < min)
-        return "Precisa ter pelo menos " + min + " caracteres";
+        return "Deve ter pelo menos " + min + " caracteres";
       return true;
     },
     max: function(r) {
       var v = r.val(), max = parseInt(r.args[0], 10);
       if(v.length > max)
-        return "Precisa ter no máximo " + max + " caracteres";
+        return "Deve ter no máximo " + max + " caracteres";
       return true;
     },
 
@@ -2495,19 +2501,19 @@ log("plugin added.");
           min = parseFloat(r.args[0]),
           max = parseFloat(r.args[1]);
       if(v > max || v < min)
-        return "Precisa estar entre " + prefix + min + suffix + "\ne " + prefix + max + suffix;
+        return "Deve estar entre " + prefix + min + suffix + "\ne " + prefix + max + suffix;
       return true;
     },
 
     agreement: function(r){
       if(!r.field.is(":checked"))
-        return "Você precisa concordar com a condição";
+        return "Você deve concordar para continuar";
       return true;
     },
     minAge: function(r){
       var age = parseInt(r.args[0],10);
       if(!age || isNaN(age)) {
-        console.log("Atencão: Idade inválida: " + age);
+        console.log("ATENÇÃO: Parâmetro de idade inválido: " + age);
         return true;
       }
       var currDate = new Date();
@@ -2515,10 +2521,10 @@ log("plugin added.");
       minDate.setFullYear(minDate.getFullYear() - age);
       var fieldDate = $.verify.utils.parseDate(r.val());
 
-      if(fieldDate === "Invalid Date")
-        return "Idade inválida";
+      if(fieldDate === "Data Inválida")
+        return "Data Inválida";
       if(fieldDate > minDate)
-        return "Você precisa ter no mínimo " + age;
+        return "Você deve ter pelo menos " + age;
       return true;
     }
   });
@@ -2537,14 +2543,14 @@ log("plugin added.");
 
       var startDate = $.verify.utils.parseDate(start.val());
       if(!startDate)
-        return "Data inicial inválida";
+        return "Data Inicial inválida";
 
       var endDate = $.verify.utils.parseDate(end.val());
       if(!endDate)
-        return "Data final inválida";
+        return "Data Final inválida";
 
       if(startDate >= endDate)
-        return "Data inicial precisa ser anterior à Data final";
+        return "Data Inicial deve ser anterior à Data Final";
 
       return true;
     },
@@ -2579,3 +2585,4 @@ log("plugin added.");
   });
 
 })(jQuery);
+}(window,document));

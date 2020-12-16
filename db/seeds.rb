@@ -43,22 +43,23 @@ puts "-======= Criando usuários... =======-"
       admin: false,
       password: '123456'
       )
-  puts "Usuário #{u.name} criado com CPF #{u.cpf}"
+  puts "Usuário(a) #{u.name} criado(a) com CPF #{u.cpf}"
 end
 
 func = ["Millena Wiese", "Ana Paula Pontello", "Thiago Almeida"]
+mail = %w[milena@gmail.com ana@gmail.com thiago@gmail.com]
 n = 0
 3.times do
   u = User.create!(
       name: func[n],
-      email: Faker::Internet.email,
+      email: mail[n],
       cpf: Faker::CPF.numeric,
       phone: Faker::PhoneNumber.cell_phone,
       admin: true,
       password: '123456'
       )
   n += 1
-  puts "Servidor #{u.name} criado com CPF #{u.cpf}"
+  puts "Servidor(a) #{u.name} criado(a) com CPF #{u.cpf}"
 end
 
 puts ""
@@ -93,7 +94,7 @@ puts "-======= Criando denúncias... =======-"
 
   puts "-- Denúncia #{d.id} criada. --"
 
-  num_category = (1..3).to_a.sample
+  num_category = (2..4).to_a.sample
   num_category.times do
     cat = ComplaintCategory.create!(
       complaint_id: d.id,
