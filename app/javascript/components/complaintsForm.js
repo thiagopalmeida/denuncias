@@ -50,8 +50,12 @@ const initComplaints = () => {
     document.getElementById("attachments").value;
     const files = document.querySelector(".form-control-file").files;
     const att_field = document.getElementById("attachments");
-    for (var i = 0; i < files.length; i++) {
-      att_field.innerHTML += (files[i].name) + "<br />";
+    if (files.length > 0) {
+      for (var i = 0; i < files.length; i++) {
+        att_field.innerHTML += (files[i].name) + "<br />";
+      };
+    } else {
+       att_field.innerText = "Nenhum arquivo anexado"
     };
   });
 }
