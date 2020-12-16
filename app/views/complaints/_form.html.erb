@@ -219,7 +219,9 @@
               <br>
               <h4>Gostaria de incluir algum documento ou foto relativo à denúncia?</h4>
               <br>
-              <%=f.collection_radio_buttons :with_attach, [[true, 'Sim'], [false, 'Não']], :first, :last%>
+              <div class="button-1 text-center">
+                <%=f.collection_radio_buttons :with_attach, [[true, 'Sim'], [false, 'Não']], :first, :last%>
+              </div>
               <div class="m-4" id="element-hide-6a" style="display: none;">
                 <%= f.input :attachment, label:false, as: :file, input_html: { multiple: true }%>
                 <span class="btn btn-primary button-5">OK</span>
