@@ -177,7 +177,7 @@
               <%= f.association :categories, as: :check_boxes, collection: @cat_aduana, include_hidden: false%>
 
               <p>#CATEGORIAS TRIBUTOS INTERNOS</p>
-              <%= f.input :categories, as: :check_boxes, collection: @cat_trib_int, include_hidden: false %>
+              <%= f.association :categories, as: :check_boxes, collection: @cat_trib_int, include_hidden: false %>
                 <button type="button" id="review_info" class="" data-toggle="modal" data-target="#info">
                   Revisar informações
                 </button>
