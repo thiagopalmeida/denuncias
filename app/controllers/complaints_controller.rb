@@ -1,8 +1,9 @@
 class ComplaintsController < ApplicationController
   before_action :set_complaint, only: %i[show edit update]
+  skip_before_action :authenticate_user!, only: %i[new create ask_login]
 
   def index
-    @complaints = Complaint.all.includes(:user)
+    @complaints = Complaint.all.includes(:user).order(:rating).reverse
   end
 
   def show
@@ -19,7 +20,7 @@ class ComplaintsController < ApplicationController
   def create
     @complaint = Complaint.new(complaint_params)
     @complaint.user = current_user
-    @complaint_categories_ids = params[:complaint][:category_ids]
+    @complaint_categories_ids = params[:complaint][:categories]
     @complaint.save
     @complaint_categories_ids.each do |id|
       new = ComplaintCategory.new(category_id: id.to_i, complaint_id: @complaint.id)
@@ -44,13 +45,14 @@ class ComplaintsController < ApplicationController
 
   def complaint_params
     params.require(:complaint).permit(
-                                      :custom, :ni_comp,
-                                      :year_comp, :keep,
-                                      :description, :user_id,
-                                      :know_ni, :name,
-                                      :address, :status,
-                                      attachments: []
-                                    )
+      :custom, :ni_comp,
+      :year_comp, :keep,
+      :description, :user_id,
+      :know_ni, :name,
+      :address, :status,
+      :with_attach,
+      attachments: []
+    )
   end
 
   def set_complaint
