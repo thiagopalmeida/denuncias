@@ -2,7 +2,7 @@ class ComplaintsController < ApplicationController
   before_action :set_complaint, only: %i[show edit update]
 
   def index
-    @complaints = Complaint.all.includes(:user)
+    @complaints = Complaint.all.includes(:user).order(:rating).reverse
   end
 
   def show
