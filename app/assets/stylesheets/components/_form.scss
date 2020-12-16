@@ -29,12 +29,15 @@ label:hover {
   opacity: 0.7;
 }
 
+
 input[type="radio"]:checked + label {
-  background-color:#DDD;
+  background-color: $my-blue;
+  color: #my-dark-blue;
 }
 
 input[type="checkbox"]:checked + label {
-  background-color:#DDD;
+  background-color: $my-blue;
+  color: #my-dark-blue;
 }
 
 legend {
@@ -52,11 +55,14 @@ legend {
   flex-flow: row wrap;
   font-weight: bold;
   text-align: center;
-  height: 100vh;
+}
+
+.form-ext-1, .form-ext-2 {
+  height: 80vh;
 }
 
 #element-hide-1, #element-hide-2, #element-hide-4, #element-hide-5, #element-hide-7 {
-  margin-top: 360px;
+  margin-top: 480px;
   margin-bottom: 40px;
 }
 

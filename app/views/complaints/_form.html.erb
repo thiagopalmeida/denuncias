@@ -4,23 +4,24 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
 
-
-  <div class="container">
-    <div class="container row intern-container p-0">
-      <div class="col-3 p-0 img-form">
-        <%= image_tag "img_teste.jpg", id:"foto-1" %>
-      </div>
-      <div class="col-9 text-form">
-        <div class="p-4 main-text">
-          <h4><strong>Seja muito bem-vindo(a) ao canal de denúncias da Receita Federal!</strong></h4>
-          <br>
-          <h5>Desde já, agradecemos pela sua denúncia. Vamos começar?</h5>
-          <br>
-          <h5>O trabalho da Receita Federal pode ser dividido em duas grandes áreas. A qual das duas áreas sua denúncia se refere?</h5>
-          <br>
-          <div class="button-1 text-center">
-            <%=f.collection_radio_buttons :custom, [[true, 'Aduana'] ,
-            [false, 'Tributos Internos']], :first, :last%>
+  <div class="form-ext-1 d-flex align-items-center">
+    <div class="container">
+      <div class="container row intern-container p-0">
+        <div class="col-3 p-0 img-form">
+          <%= image_tag "img_teste.jpg", id:"foto-1" %>
+        </div>
+        <div class="col-9 text-form">
+          <div class="p-4 main-text">
+            <h4><strong>Seja muito bem-vindo(a) ao canal de denúncias da Receita Federal!</strong></h4>
+            <br>
+            <h5>Desde já, agradecemos pela sua denúncia. Vamos começar?</h5>
+            <br>
+            <h5>O trabalho da Receita Federal pode ser dividido em duas grandes áreas. A qual das duas áreas sua denúncia se refere?</h5>
+            <br>
+            <div class="button-1 text-center">
+              <%=f.collection_radio_buttons :custom, [[true, 'Aduana'] ,
+              [false, 'Tributos Internos']], :first, :last%>
+            </div>
           </div>
         </div>
       </div>
@@ -40,17 +41,19 @@
       <p>#FIM TEXTO OPCIONAL</p> -->
 
   <div id="element-hide-1" style="display: none;">
-    <div class="container">
-      <div class="container row intern-container p-0">
-        <div class="col-3 p-0 img-form">
-          <%= image_tag "img_teste.jpg", id:"foto-2" %>
-        </div>
-        <div class="col-9 text-form">
-          <div class="p-4 main-text">
-            <h4>Ótimo! Agora escreva a sua denúncia com o maior nível de detalhamento que conseguir:</h4>
-            <div class="text-center" id="form-2">
-            <%= f.input :description, label:false, :required => true %>
-            <span class="btn btn-primary button-2">OK</span>
+    <div class="form-ext-2 d-flex align-items-center">
+      <div class="container">
+        <div class="container row intern-container p-0">
+          <div class="col-3 p-0 img-form">
+            <%= image_tag "img_teste.jpg", id:"foto-2" %>
+          </div>
+          <div class="col-9 text-form">
+            <div class="p-4 main-text">
+              <h4>Ótimo! Agora escreva a sua denúncia com o maior nível de detalhamento que conseguir:</h4>
+              <div class="text-center" id="form-2">
+              <%= f.input :description, label:false, :required => true %>
+              <span class="btn btn-primary button-2">OK</span>
+              </div>
             </div>
           </div>
         </div>
