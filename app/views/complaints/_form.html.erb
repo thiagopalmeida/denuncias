@@ -1,29 +1,27 @@
-<div id="wrapper">
+<div class="wrapper">
 <%= simple_form_for(@complaint) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
 
-  <div class="image-background">
-    <div class="container">
-      <div class="row align-items-center borda" id="form-1">
-        <div class="col d-flex justify-content-center borda m-5 box-form-ext">
-          <div id="complaint-form" class="box-form-int borda">
-            <h2>Seja muito bem-vindo(a) ao canal de denúncias da Receita Federal!</h2>
-            <br>
-            <h4>Desde já, agradecemos pela sua denúncia.</h4>
-            <br>
-            <h4>Vamos começar?</h4>
-            <br>
-            <br>
-            <p>O trabalho da Receita Federal pode ser dividido em duas grandes áreas:
-            <span id="dest-1">ADUANA</span> e <span id="dest-2">TRIBUTOS INTERNOS.</span></p>
-            <div class="container m-3 button-1">
-              <%=f.collection_radio_buttons :custom, [[true, 'Aduana'] ,
-              [false, 'Tributos Internos']], :first, :last%>
-            </div>
-            <p>A qual das duas áreas sua denúncia se refere?</p>
+  <div class="container borda">
+    <div class="container row intern-container borda p-0">
+      <div class="col-3 borda p-0 img-form">
+        <%= image_tag "img_teste.jpg", id:"foto-1" %>
+      </div>
+      <div class="col-9 text-form borda">
+        <div class="p-4 main-text">
+          <h4><strong>Seja muito bem-vindo(a) ao canal de denúncias da Receita Federal!</strong></h4>
+          <br>
+          <h5>Desde já, agradecemos pela sua denúncia. Vamos começar?</h5>
+          <br>
+          <h5>O trabalho da Receita Federal pode ser dividido em duas grandes áreas. A qual das duas áreas sua denúncia se refere?</h5>
+          <br>
+          <div class="borda button-1 text-center">
+            <%=f.collection_radio_buttons :custom, [[true, 'Aduana'] ,
+            [false, 'Tributos Internos']], :first, :last%>
           </div>
+        </div>
       </div>
     </div>
   </div>
@@ -41,16 +39,21 @@
       <p>#FIM TEXTO OPCIONAL</p> -->
 
   <div id="element-hide-1" style="display: none;">
-    <div class="image-background">
-      <%= image_tag "img_teste.jpg", id:"foto-2" %>
-      <div class="container">
-        <div class="row align-items-center borda" id="form-2">
+    <div class="container">
+      <div class="container intern-container borda p-4">
+        <div class="d-flex flex-row justify-content-start my-2">
+          <div class="col-5 main-text borda">
+            <h3>Ótimo! Agora escreva a sua denúncia com o maior nível de detalhamento que conseguir:</h3>
+          </div>
+          <div class="col-7 main-text borda" id="form-2">
+            <%= f.input :description, label:false, :required => true %>
+            <span class="btn btn-primary button-2">OK</span>
+          </div>
+        </div>
+        <div class="row align-items-center borda">
           <div class="col d-flex justify-content-center borda m-5 box-form-ext">
             <div id="complaint-form" class="box-form-int borda">
-              <h4>Ótimo! Agora escreva a sua denúncia com o maior nível de detalhamento que conseguir:</h4>
-              <br>
-              <%= f.input :description, label:false, :required => true %>
-              <span class="btn btn-primary button-2">OK</span>
+
             </div>
           </div>
         </div>
@@ -128,7 +131,7 @@
           <div class="col d-flex justify-content-center borda m-5 box-form-ext">
             <div id="complaint-form" class="box-form-int borda">
               <h2>Já estamos quase acabando...</h2>
-              <p>Gostaria de juntar algum documento ou foto relativo à denúncia?</p>
+              <p>Gostaria de incluir algum documento ou foto relativo à denúncia?</p>
               <%=f.collection_radio_buttons :with_attach, [[true, 'Sim'] ,
                   [false, 'Não']], :first, :last%>
               <div id="element-hide-6a" style="display: none;">
@@ -157,7 +160,7 @@
               </div>
               <p>#CATEGORIAS TRIBUTOS INTERNOS</p>
               <div id="categories-intern" style="display: none;">
-                <%= f.input :categories, as: :check_boxes, collection: @cat_trib_int, include_hidden: false %>
+                <%= f.association :categories, as: :check_boxes, collection: @cat_trib_int, include_hidden: false %>
               </div>
               <button type="button" id="review_info" class="" data-toggle="modal" data-target="#info">
                 Revisar informações
