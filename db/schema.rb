@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2020_12_15_203336) do
     t.integer "rating"
     t.string "ua"
     t.text "comment"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "know_ni"
