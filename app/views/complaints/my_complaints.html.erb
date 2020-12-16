@@ -3,8 +3,8 @@
       <div class="">
         <h4 class="text-center font-weight-bold">Minhas Denúncias</h4>
         <br>
-        <% if @my_complaints.nil?%>
-          <% redirect_to root_path, notice: "Nenhuma denúncia encontrada." %>
+        <% if @my_complaints.empty? %>
+          <% controller.redirect_to root_path, notice: "Nenhuma denúncia encontrada." %>
         <% else %>
           <% @my_complaints.each do |complaint| %>
           <div class="container p-2 shadow mb-5 bg-white rounded">
