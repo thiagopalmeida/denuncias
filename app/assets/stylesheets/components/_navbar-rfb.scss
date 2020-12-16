@@ -1,8 +1,12 @@
-.full-header-home, .full-header-others {
+.full-header-home, .full-header-others, .full-header-color {
   top: 0px;
   width: 100%;
   z-index: 10000;
   pointer-events: none;
+}
+
+.full-header-color {
+  background-color: rgba(160,160,160,0.1);
 }
 
 .full-header-home {
@@ -41,15 +45,21 @@
   width: 200px;
 }
 
-.opcoes-navbar {
+.opcoes-navbar, .opcoes-navbar-color {
   display: flex;
   align-items: center;
   border-radius: 8px;
   padding: 2px;
   pointer-events: all;
-  opacity: 0.8;
+  opacity: 0.9;
   border: 2px solid $my-light-grey;
+}
+.opcoes-navbar {
   background-color: rgba(0,0,0,0.2);
+}
+
+.opcoes-navbar-color {
+  background-color: rgba(8,30,65,0.8);
 }
 
 .nav-link {

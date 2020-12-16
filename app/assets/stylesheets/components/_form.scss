@@ -16,11 +16,17 @@ label {
   position:relative;
   width: 160px;
   text-align: center;
+  color: $my-light-grey;
+  background-color: $my-dark-blue;
+  opacity: 0.8;
 }
 
 label:hover {
   cursor:pointer;
-  background-color:#EEE;
+  background-color: $my-light-grey;
+  color: $my-dark-blue;
+  transition: 0.3s;
+  opacity: 0.7;
 }
 
 input[type="radio"]:checked + label {
@@ -35,12 +41,31 @@ legend {
   display: none;
 }
 
-#foto-1, #foto-2, #foto-3, #foto-4, #foto-5, #foto-6, #foto-7 {
+.wrapper > * {
+  padding: 10px;
+  flex: 1 100%;
+}
+
+.wrapper {
+  background-color: rgba(160,160,160,0.1);
+  display: flex;
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+  height: 100vh;
+}
+
+#foto-2, #foto-3, #foto-4, #foto-5, #foto-6, #foto-7 {
   width: 100vw;
-  height: 640px;
+  height: 660px;
   object-fit: cover;
   z-index: -2;
   position: absolute;
+}
+
+#element-hide-1, #element-hide-2, #element-hide-4, #element-hide-5, #element-hide-7 {
+  margin-top: 400px;
+  margin-bottom: 40px;
 }
 
 .box-form-ext {
@@ -52,12 +77,9 @@ legend {
 }
 
 .box-form-int {
+  margin: 80px 56px;
   padding: 16px;
   text-align: center;
-}
-
-.space {
-  height: 400px;
 }
 
 textarea.form-control {
@@ -68,7 +90,98 @@ textarea.form-control {
   text-align: center;
 }
 
-.borda {
-  border: 2px solid black;
+.complaint_categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
+
+.form-check-label {
+  height: 136px;
+  width: 176px;
+  border: 16px;
+  padding: 8px;
+  border: 1px solid $my-dark-blue;
+  align-items: stretch;
+  text-align: center;
+}
+
+/*.borda {
+  border: 2px solid black;
+}*/
+
+.intern-container {
+  margin: 64px 0px;
+  height: 400px;
+  background-color: rgba(10,80,200,0.05);
+  border-radius: 12px;
+  box-shadow: 2px 2px 4px rgba(20, 20, 20, 0.4);
+}
+
+.height-row {
+  height: 80px;
+}
+
+.text-form {
+  display: flex;
+  align-items: center;
+}
+
+.main-text {
+  h1 {
+    font-size: 28px;
+    color: $my-dark-blue;
+    text-align: left;
+  }
+  h3 {
+    font-size: 24px;
+    color: $my-dark-blue;
+    text-align: left;
+  }
+  h4 {
+    font-size: 20px;
+    color: $my-dark-blue;
+    text-align: justify;
+  }
+  h5 {
+    font-size: 18px;
+    color: $my-dark-blue;
+    text-align: left;
+  }
+}
+
+
+#foto-1 {
+  object-fit: cover;
+  z-index: -2;
+  position: absolute;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 440px;
+}
+
+.button-2 {
+  width: inherit;
+}
+
+#form-2 {
+  .form-group {
+    margin-bottom: 0;
+  }
+}
+.img-form {
+  background-image: linear-gradient(rgba(0,20,80,0.2), rgba(0,20,80,0.4));
+}
+
+.img-form img {
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px 0 0 12px;
+}
+
+.collection_radio_buttons {
+  margin: 2px;
+}
+
 
