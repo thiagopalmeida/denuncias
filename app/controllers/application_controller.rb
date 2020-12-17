@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(_resource)
-    new_complaint_path
+    if @user.admin?
+      complaints_path
+    else
+      new_complaint_path
+    end
   end
 end

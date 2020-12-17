@@ -9,6 +9,7 @@
   font-size: 32px;
   align-items: center;
   font-weight: bold;
+  color: $my-dark-blue
   }
 }
 
@@ -32,7 +33,7 @@
   margin: 0px;
   padding-top: 16px;
   font-family: $headers-font;
-  padding-bottom: 6px;
+  padding-bottom: 8px;
   text-align: left;
   color: $my-dark-blue;
   font-weight: bold;
@@ -56,8 +57,9 @@
 
 .panel-title {
   font-size: 18px;
-
-}
+  padding: 6px;
+  font-weight: 300;
+  }
 
 .wrapper-faq {
   background-color: rgba(160,160,160,0.1);
