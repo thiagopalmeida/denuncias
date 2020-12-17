@@ -7,7 +7,11 @@
         <h1 class="home" id="typed"> à sonegação </h1>
         <br>
         <div class="d-flex justify-content-center">
-          <%= link_to "Denuncie", ask_login_complaints_path, class: "link-denuncia js-lookforward", data:{"transition-enter": "slideup", "transition-leave": "slidedown"} %>
+          <% if user_signed_in? %>
+            <%= link_to "Denuncie", new_complaint_path, class: "link-denuncia js-lookforward", data:{"transition-enter": "slideup", "transition-leave": "slidedown"} %>
+          <% else %>
+            <%= link_to "Denuncie", ask_login_complaints_path, class: "link-denuncia js-lookforward", data:{"transition-enter": "slideup", "transition-leave": "slidedown"} %>
+          <% end %>
         </div>
       </div>
     </div>

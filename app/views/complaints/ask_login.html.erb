@@ -1,14 +1,19 @@
-<div id="element-hide-7">
-  <div class="image-background">
-    <%= image_tag "img_teste.jpg", id:"foto-7" %>
+<div class="wrapper"> 
+  <div class="form-ext-1 d-flex align-items-center">
     <div class="container">
-      <div class="row align-items-center borda", id="form-7">
-        <div class="col d-flex justify-content-center borda m-5 box-form-ext">
-          <div id="complaint-form" class="box-form-int borda">
-            <p>Gostaria de se identificar? </p>
-              <%= link_to  "Sim", new_user_registration_path %>
-              <%= link_to  "Não",  new_complaint_path %>
-            </p>
+      <div class="container row intern-container p-0">
+        <div class="col-3 p-0 img-form-impar">
+          <%= image_tag "img_teste.jpg", id:"foto-1" %>
+        </div>
+        <div class="col-9 text-form">
+          <div class="p-4 main-text">
+            <h3><strong>Seja muito bem-vindo(a) ao canal de denúncias da Receita Federal!</strong></h3>
+            <br>
+            <h4>Você gostaria de se identificar?</h4>
+            <br>
+            <div class="button-1 text-center">
+              <%= link_to "Sim", new_user_registration_path, class:"btn-ask-login text-center"%>
+              <%= link_to "Não", new_complaint_path, class:"btn-ask-login"%>
           </div>
         </div>
       </div>

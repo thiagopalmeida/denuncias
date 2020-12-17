@@ -1,4 +1,3 @@
-// Este CSS foi só para testar os botões do formulário!
 input[type="radio"] {
   display:none;
 }
@@ -7,21 +6,211 @@ input[type="checkbox"] {
   display:none;
 }
 
-label {
-  border: 1px solid #DDD;
+
+label, .btn-ask-login, #review_info {
+  border: 1px solid $my-dark-blue;
   border-radius:5px;
   padding:10px;
   margin-top:10px;
   display:inline-block;
   position:relative;
-  width: 160px;
+  width: 180px;
   text-align: center;
   color: $my-light-grey;
   background-color: $my-dark-blue;
   opacity: 0.8;
 }
 
-label:hover {
+
+#review_info {
+  width: auto;
+}
+
+label:hover, #review_info:hover, .btn-ask-login:hover {
+  cursor:pointer;
+  background-color: $my-light-grey;
+  color: $my-dark-blue;
+  transition: 0.3s;
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+
+input[type="radio"]:checked + label {
+  background-color: rgba(0, 20, 80, 0.5);
+  color: #my-dark-blue;
+}
+
+input[type="checkbox"]:checked + label {
+  background-color: rgba(0, 20, 80, 0.5);
+  color: #my-dark-blue;
+}
+
+legend {
+  display: none;
+}
+
+.wrapper > * {
+  padding: 10px;
+  flex: 1 100%;
+}
+
+.wrapper {
+  background-color: rgba(160,160,160,0.1);
+  display: flex;
+  flex-flow: row wrap;
+  // font-weight: bold;
+  // text-align: center;
+}
+
+.form-ext-1, .form-ext-2, .form-ext-3, .form-ext-4, .form-ext-5, .form-ext-6 {
+  height: 95vh;
+}
+
+#element-hide-1, #element-hide-2, #element-hide-4, #element-hide-5, #element-hide-7 {
+  margin-top: 480px;
+  margin-bottom: 40px;
+}
+
+/*.box-form-ext {
+  background-color: $my-light-grey;
+  opacity: 0.9;
+  border-radius: 8px;
+  width: 60vw;
+  box-shadow: 2px 2px 4px rgba(20, 20, 20, 0.4);
+}*/
+
+.box-form-int {
+  margin: 80px 56px;
+  padding: 16px;
+  text-align: center;
+}
+
+textarea.form-control {
+  height: 248px;
+  max-height: 248px;
+}
+
+.text-without-box {
+  text-align: center;
+}
+
+.complaint_categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.form-group .form-check .form-check-label {
+  display: flex;
+  height: 90px;
+  width: 230px;
+  border: 16px;
+  padding: 8px;
+  border: 1px solid $my-dark-blue;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-check {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/*.borda {
+  border: 2px solid black;
+}*/
+
+.intern-container {
+  margin: 64px 0px;
+  height: 400px;
+  background-color: rgba(10,80,200,0.05);
+  border-radius: 12px;
+  border: 1px solid $my-dark-blue;
+  box-shadow: 1px 1px 6px rgba(20, 20, 20, 0.3);
+}
+
+.height-row {
+  height: 80px;
+}
+
+.text-form {
+  display: flex;
+  align-items: center;
+}
+
+.main-text {
+  h1 {
+    font-size: 28px;
+    color: $my-dark-blue;
+    text-align: left;
+  }
+  h3 {
+    font-size: 24px;
+    color: $my-dark-blue;
+    text-align: center;
+  }
+  h4 {
+    font-size: 20px;
+    color: $my-dark-blue;
+    text-align: justify;
+  }
+  h5 {
+    font-size: 18px;
+    color: $my-dark-blue;
+    text-align: left;
+  }
+}
+
+
+#foto-1, #foto-2, #foto-3, #foto-4, #foto-5, #foto-6, #foto-7 {
+  object-fit: cover;
+  z-index: -2;
+  position: absolute;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 440px;
+}
+
+.button-2 {
+  width: -webkit-fill-available;
+  border-radius: 5px;
+}
+
+#form-2 {
+  .form-group {
+    margin-bottom: 0;
+  }
+}
+.img-form-impar, .img-form-par {
+  background-image: linear-gradient(rgba(0,20,80,0.2), rgba(0,20,80,0.4));
+  max-height: 400px;
+}
+
+.img-form-impar {
+  border-radius: 12px 0 0 12px;
+}
+
+.img-form-par {
+  border-radius: 0 12px 12px 0;
+}
+
+.img-form-impar img {
+  max-height: 399px;
+  object-fit: cover;
+  border-radius: 12px 0 0 12px;
+}
+
+.img-form-par img {
+  max-height: 399px;
+  object-fit: cover;
+  border-radius: 0 12px 12px 0;
+}
+
+.button-2:hover, .button-3a:hover, .button-3b:hover, .button-5:hover {
   cursor:pointer;
   background-color: $my-light-grey;
   color: $my-dark-blue;
@@ -29,52 +218,16 @@ label:hover {
   opacity: 0.7;
 }
 
-input[type="radio"]:checked + label {
-  background-color:#DDD;
+.button-3a, .button-3b, .button-5 {
+  border-radius: 5px;
 }
 
-input[type="checkbox"]:checked + label {
-  background-color:#DDD;
+.collection_radio_buttons {
+  margin: 2px;
+
 }
 
-legend {
-  display: none;
-}
-
-#foto-1, #foto-2, #foto-3, #foto-4, #foto-5, #foto-6, #foto-7 {
-  width: 100vw;
-  height: 640px;
-  object-fit: cover;
-  z-index: -2;
-  position: absolute;
-}
-
-.box-form-ext {
-  background-color: $my-light-grey;
-  opacity: 0.9;
-  border-radius: 8px;
-  width: 60vw;
-  box-shadow: 2px 2px 4px rgba(20, 20, 20, 0.4);
-}
-
-.box-form-int {
-  padding: 16px;
-  text-align: center;
-}
-
-.space {
-  height: 400px;
-}
-
-textarea.form-control {
-  height: 400px;
-}
-
-.text-without-box {
-  text-align: center;
-}
-
-.borda {
-  border: 2px solid black;
+#container-categories {
+  height: auto;
 }
 
