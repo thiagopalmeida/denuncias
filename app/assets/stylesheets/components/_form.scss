@@ -16,11 +16,17 @@ label {
   position:relative;
   width: 160px;
   text-align: center;
+  color: $my-light-grey;
+  background-color: $my-dark-blue;
+  opacity: 0.8;
 }
 
 label:hover {
   cursor:pointer;
-  background-color:#EEE;
+  background-color: $my-light-grey;
+  color: $my-dark-blue;
+  transition: 0.3s;
+  opacity: 0.7;
 }
 
 input[type="radio"]:checked + label {

@@ -26,21 +26,11 @@
   position:relative;
   width: auto;
   text-align: center;
-}
-}
+  background-color: white;
+  color: black;
+  }
 
-label {
-  border: 1px solid #DDD;
-  border-radius:5px;
-  padding:10px;
-  margin-top:10px;
-  display:inline-block;
-  position:relative;
-  width: 160px;
-  text-align: center;
-}
-
-label:hover {
+  label:hover {
   cursor:pointer;
-  background-color:#EEE;
+  }
 }
