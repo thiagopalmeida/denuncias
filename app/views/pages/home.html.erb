@@ -10,9 +10,9 @@
           <br>
           <div class="d-flex justify-content-center">
             <% if user_signed_in? %>
-              <%= link_to "Denuncie", new_complaint_path, class: "link-denuncia js-lookforward", data:{"transition-enter": "slideup", "transition-leave": "slidedown"} %>
+              <%= link_to "Denuncie", new_complaint_path, class: "link-denuncia js-lookforward", data:{"transition-enter": "slideup", "transition-leave": "slidedown", turbolinks: "false"} %>
             <% else %>
-              <%= link_to "Denuncie", ask_login_complaints_path, class: "link-denuncia js-lookforward", data:{"transition-enter": "slideup", "transition-leave": "slidedown"} %>
+              <%= link_to "Denuncie", ask_login_complaints_path, class: "link-denuncia js-lookforward", data:{"transition-enter": "slideup", "transition-leave": "slidedown", turbolinks: "false"} %>
             <% end %>
           </div>
         </div>
