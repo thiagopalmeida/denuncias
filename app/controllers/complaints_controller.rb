@@ -21,6 +21,10 @@ class ComplaintsController < ApplicationController
     @complaint = Complaint.new(complaint_params)
     @complaint.user = current_user
     @complaint_categories_ids = params[:complaint][:category_ids]
+    @complaint.status = "recebida"
+    @admins = User.where(admin: true)
+    @admins_ids = @admins.ids
+    @complaint.admin_user = @admins_ids.sample
     if @complaint.save
       unless @complaint_categories_ids.nil?
         @complaint_categories_ids.each do |id|
