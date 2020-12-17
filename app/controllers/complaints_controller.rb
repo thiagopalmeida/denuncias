@@ -71,6 +71,7 @@ class ComplaintsController < ApplicationController
       :know_ni, :name,
       :address, :status, :ua,
       :with_attach,
+      :category_ids,
       attachments: []
     )
   end
