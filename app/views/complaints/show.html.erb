@@ -45,6 +45,7 @@
         <h3 class="text-center mb-2">Descrição:</h3>
         <p class="text-justify"><%= @complaint.description %></p>
         <p>Attachments</p>
+        <p><%=  %></p>
         <h3 class="text-center mb-2">Enquadramento legal:</h3>
         <ol type="I">
           <% if @complaint.categories.size.positive? %>
@@ -69,9 +70,9 @@
         <p>Comentários: <strong><%= @complaint.comment %></strong></p>
       </div>
       <div class="col-sm-4 p-1">
-        <p>Servidor Responsável: <strong><%= @admins.find(@complaint.admin_user).name%></strong></p> 
+        <p>Servidor Responsável: <strong><%= @admins.find(@complaint.admin_user).name%></strong></p>
       </div>
     </div>
-    <p class="text-center"><%= link_to "Voltar", 'javascript:window.history.back();', class: "btn btn-primary button-p" %></p>
+    <p class="text-center"><%= link_to "Voltar", complaints_path, data: { turbolinks: "false"}, class: "btn btn-primary button-p" %></p>
   </div>
 </div>

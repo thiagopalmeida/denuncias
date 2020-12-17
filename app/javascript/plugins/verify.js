@@ -3,7 +3,7 @@
  * Copyright (c) 2013 Jaime Pillora - MIT
  */
 
-if (document.querySelector('.form-login')) {
+if (document.querySelector('.form-login')||document.querySelector('.form-ext-1')) {
 
   (function(window,document,undefined) {
   (function(window,document,undefined) {

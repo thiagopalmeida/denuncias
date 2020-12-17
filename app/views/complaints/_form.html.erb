@@ -45,7 +45,8 @@
             <div class="p-4 main-text">
               <h4>Escreva a sua denúncia com o maior nível de detalhamento que conseguir:</h4>
               <div class="text-center" id="form-2">
-              <%= f.input :description, label:false, :required => true %>
+              <%= f.input :description, label:false, :required => true,
+              input_html: { "data-validate" => "required" } %>
               <span class="btn btn-primary button-2">OK</span>
               </div>
             </div>
@@ -100,7 +101,8 @@
               </div>
               <div id="element-hide-3a" style="display: none;">
                 <div>
-                  <%= f.input :ni_comp, label:false, :required => true, :placeholder=> 'CPF ou CNPJ' %>
+                  <%= f.input :ni_comp, label:false, :required => true, :placeholder=> 'CPF ou CNPJ',
+                  input_html: { "data-validate" => "cpf_cnpj,required" } %>
                   <span class="btn btn-primary button-3a">OK</span>
                 </div>
               </div>
@@ -108,7 +110,8 @@
                 <div>
                   <h5>Para nos ajudar a localizar esta pessoa, saberia dizer
                   o seu endereço e/ou o seu nome?</h5>
-                  <%= f.input :name, label:false, :placeholder => 'Nome' %>
+                  <%= f.input :name, label:false, :placeholder => 'Nome',
+                  input_html: { "data-validate" => "required" } %>
                   <%= f.input :address, label:false, :placeholder => 'Endereço' %>
                   <span class="btn btn-primary button-3b">OK</span>
                 </div>
@@ -167,7 +170,8 @@
           <div class="col-9 text-form">
             <div class="p-4 main-text">
               <h4>Em que ano aconteceu este fato que você acabou de nos contar?</h4>
-              <%= f.input :year_comp, label:false, :placeholder => 'Digite apenas números', :required => true  %>
+              <%= f.input :year_comp, label:false, :placeholder => 'Digite apenas números', :required => true,
+              input_html: { "data-validate" => "required,number" }  %>
               <br>
               <h4>E você acha que ainda está acontecendo?</h4>
               <div class="text-center button-4">
