@@ -1,13 +1,22 @@
 .board {
   border-radius: 10px;
-  margin: 10px;
   height: 42vh;
-  overflow-x: hidden;
+  overflow-x: auto;
   overflow-y: auto;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.15);
   p {
     font-size: 20px;
   }
+}
+
+.board-pequena-left {
+  margin-left: 30px;
+  width: 70vw;
+}
+
+.board-pequena-right {
+  margin-right: 30px;
+  width: 70vw;
 }
 
 .board_show {
@@ -16,7 +25,7 @@
   height: 85vh;
   overflow-x: hidden;
   overflow-y: auto;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.15);
   p, ol {
     font-size: 20px;
   }
@@ -29,3 +38,21 @@ label.modal-dash {
 input.modal-dash[type="radio"]:checked + label {
   background-color:#1C6EA4;
 }
+
+.tableFixHead          { overflow-y: auto; height: 40vh; }
+.tableFixHead thead th { position: sticky; top: 0; border-top: 0px solid; }
+/* Just common table stuff. Really. */
+table  { border-collapse: collapse; width: 100%; }
+th, td { padding: 8px 16px; border-top: 0px solid; vertical-align: middle !important;}
+th     { background:#eee; }
+.table th {
+  border-top: 0px !important;
+}
+
+.titulo-tabela {
+  text-align: center;
+  justify-content: center;
+  border-top: 0px solid;
+  font-weight: bold;
+}
+
