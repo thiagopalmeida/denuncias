@@ -20,8 +20,16 @@
                   <% else %>
                     <td>Tributo Interno</td>
                   <% end %>
-                  <td><%= complaint.ni_comp %></td>
-                  <td><%= complaint.name %></td>
+                  <% if complaint.ni_comp? %>
+                      <td><%= complaint.ni_comp %></td>
+                    <% else %>
+                      <td>Não informado</td>
+                    <% end %>
+                    <% if complaint.name? %>
+                      <td><%= complaint.name %></td>
+                    <% else %>
+                      <td>Não informado</td>
+                    <% end %>
                   <td><%= complaint.rating %></td>
                   <% if complaint.user_id? %>
                     <td><%= complaint.user.name%></td>
@@ -56,10 +64,22 @@
                     <% else %>
                       <td>Tributo Interno</td>
                     <% end %>
-                    <td><%= complaint.ni_comp %></td>
-                    <td><%= complaint.name %></td>
+                    <% if complaint.ni_comp? %>
+                      <td><%= complaint.ni_comp %></td>
+                    <% else %>
+                      <td>Não informado</td>
+                    <% end %>
+                    <% if complaint.name? %>
+                      <td><%= complaint.name %></td>
+                    <% else %>
+                      <td>Não informado</td>
+                    <% end %>
                     <td><%= complaint.rating %></td>
-                    <td><%= complaint.user.name %></td>
+                    <% if complaint.user_id? %>
+                      <td><%= complaint.user.name %></td>
+                    <% else %>
+                      <td>Anônimo</p>
+                    <% end %>
                     <td><%= link_to "Detalhes", complaint_path(complaint), class: "btn btn-primary btn-sm button-p" %></td>
                   </tr>
                 <% end %>

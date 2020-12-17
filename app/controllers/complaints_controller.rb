@@ -25,6 +25,7 @@ class ComplaintsController < ApplicationController
     @admins = User.where(admin: true)
     @admins_ids = @admins.ids
     @complaint.admin_user = @admins_ids.sample
+    @complaint.rating = set_rating
     if @complaint.save
       unless @complaint_categories_ids.nil?
         @complaint_categories_ids.each do |id|
@@ -77,5 +78,45 @@ class ComplaintsController < ApplicationController
 
   def set_complaint
     @complaint = Complaint.find(params[:id])
+  end
+
+  def set_rating
+    # MAX = 15
+    # MIN = 1
+    @rating = 0
+    # Tamanho da Descrição da Denúncia
+    # Maior que 100 palavras: 2 | Maior que 400 palavras: 3
+    if @complaint.description.split.size > 400
+      @rating += 3
+    elsif @complaint.description.split.size > 100
+      @rating += 2
+    else
+      @rating += 0
+    end
+
+    # Informou NI => 2
+    @rating += 2 if @complaint.ni_comp?
+
+    # Ano => Menor que 2016: 1 | 2017 e 2018: 3 | 2019 e 2020: 2
+    if @complaint.year_comp == 2019 || @complaint.year_comp == 2020
+      @rating += 2
+    elsif @complaint.year_comp == 2017 || @complaint.year_comp == 2018
+      @rating += 3
+    else
+      @rating += 1
+    end
+
+    # Ilícito continua ocorrendo? => Sim 3 | Não 0
+    @rating += 3 if @complaint.keep == "Sim"
+
+    # Possui anexo? => Sim 2 | Não 0
+    @rating += 2 if @complaint.with_attach?
+
+    # Marcou categoria? => Sim 2 | Não 0
+    if @complaint_categories_ids.nil?
+      @rating += 0
+    else
+      @rating += 2
+    end
   end
 end
