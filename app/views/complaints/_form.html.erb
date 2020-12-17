@@ -7,7 +7,7 @@
     <div class="container">
       <div class="container row intern-container p-0">
         <div class="col-3 p-0 img-form-impar">
-          <%= image_tag "img_teste.jpg", id:"foto-1" %>
+          <%= image_tag "img-para-form-receita.jpg", id:"foto-1" %>
         </div>
         <div class="col-9 text-form">
           <div class="p-4 main-text">
@@ -51,7 +51,7 @@
             </div>
           </div>
           <div class="col-3 p-0 img-form-par">
-            <%= image_tag "img_teste.jpg", id:"foto-2" %>
+            <%= image_tag "img-para-form-4.jpg", id:"foto-2" %>
           </div>
         </div>
       </div>
@@ -87,7 +87,7 @@
       <div class="container">
         <div class="container row intern-container p-0">
           <div class="col-3 p-0 img-form-impar">
-            <%= image_tag "img_teste.jpg", id:"foto-3" %>
+            <%= image_tag "img-para-form-3.jpg", id:"foto-3" %>
           </div>
           <div class="col-9 text-form">
             <div>
@@ -176,7 +176,7 @@
             </div>
           </div>
           <div class="col-3 p-0 img-form-par">
-            <%= image_tag "img_teste.jpg", id:"foto-4" %>
+            <%= image_tag "img-para-form-2.jpg", id:"foto-4" %>
           </div>
         </div>
       </div>
@@ -267,7 +267,7 @@
           <div class="col-12 text-form p-0 d-flex justify-content-center">
             <div class="main-text">
               <br>
-              <h3 class="m-3">Em sua opinião, quais tópicos possuem relação com sua denúncia? 
+              <h3 class="m-3">Em sua opinião, quais tópicos possuem relação com sua denúncia?
               Selecione quantos desejar.</h3>
               <br>
               <div id="categories-custom" style="display: none;">
@@ -280,7 +280,7 @@
                 <button type="button" id="review_info" class="m-3" data-toggle="modal" data-target="#info">
                   REVISAR INFORMAÇÕES
                 </button>
-              </div>  
+              </div>
             </div>
           </div>
         </div>
@@ -338,11 +338,11 @@
                 <strong>Área à qual a denúncia se refere: </strong>
                 <p id="area_modal"></p>
               </div>
-              <div class="container p-2 shadow mb-2 rounded description_modal"> 
+              <div class="container p-2 shadow mb-2 rounded description_modal">
                 <strong>Descrição: </strong>
                 <p id="description_modal"></p>
               </div>
-              <div class="container p-2 shadow mb-2 rounded description_modal"> 
+              <div class="container p-2 shadow mb-2 rounded description_modal">
                 <strong>Nome do denunciado: </strong>
                 <p id="denounced_modal"></p>
                 <strong>Endereço do denunciado: </strong>
@@ -350,25 +350,25 @@
                 <strong>CPF ou CNPJ do denunciado: </strong>
                 <p id="ni_modal"></p>
               </div>
-              <div class="container p-2 shadow mb-2 rounded description_modal"> 
+              <div class="container p-2 shadow mb-2 rounded description_modal">
                 <strong>Ano de início da ocorrência: </strong>
                 <p id="init_year_modal"></p>
                 <strong>Ocorrência continua acontecendo? </strong>
                 <p id="continuous_modal"></p>
               </div>
-              <div class="container p-2 shadow mb-2 rounded description_modal"> 
+              <div class="container p-2 shadow mb-2 rounded description_modal">
                 <strong>Tópicos relacionados à denúncia: </strong>
                 <p id="categories"></p>
               </div>
-              <div class="container p-2 shadow mb-2 rounded description_modal"> 
+              <div class="container p-2 shadow mb-2 rounded description_modal">
                 <strong>Documentos anexados: </strong>
                 <p id="attachments"></p>
               </div>
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
-              <%= f.button :submit, 'Confirmar', class: "btn btn-primary" %>
+              <button type="button" class="btn btn-secondary button-p" data-dismiss="modal">Voltar</button>
+              <%= f.button :submit, 'Confirmar', class: "btn btn-primary button-p" %>
             </div>
           </div>
         </div>
