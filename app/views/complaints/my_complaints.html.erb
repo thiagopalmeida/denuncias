@@ -39,6 +39,20 @@
                 <td><%= complaint.description %></td>
               </tbody>
             </table>
+
+            <table class="table table-hover table-borderless">
+              <thead class="thead-light">
+                <th>Anexo(s)</th>
+              </thead>
+              <tbody> 
+              <td>
+                <% complaint.attachments.each do |att| %>
+                <%= cl_image_path att.key%>
+                <% end %>
+                </td>
+              </tbody>
+            </table>
+
             <table class="table table-hover table-borderless">
               <thead class="thead-light">
                 <th>Categorias às quais a denúncia se relaciona</th>
@@ -55,12 +69,20 @@
               <thead class="thead-light">
                 <th>Informações complementares à denúncia</th>
               </thead>
-              <tbody id="my_comp">
-                <% complaint.complements.each do |complement|%>
-                
-                <%= link_to 'Informações', complaint_complement_path(complaint, complement), class: "btn btn-secondary button-p text-center" %>
-              <% end %>
-              </tbody>
+              <tbody>
+                <td>
+                  <%# complaint.complements.each do |complement|%>
+                  <%#= link_to 'Informações', complaint_complement_path(complaint, complement), class: "btn btn-secondary button-p text-center" %>
+                  <%# end %>
+                <% if complaint.complements.size.positive? %>
+                  <% complaint.complements.each do |complement|%>
+                    <li><%= complement.additional_information %></li>
+                  <% end %>
+                <% else %>
+                  <li> Nenhuma informação complementar.</li>
+                <% end %>
+                </td>
+             </tbody>
             </table>
             <div class="nav justify-content-end">
               <%= link_to 'Complementar denúncia', new_complaint_complement_path(complaint), class: "btn btn-primary button-p text-center" %>
