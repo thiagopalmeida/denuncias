@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <div class="row justify-content-center">
+      <div class="row justify-content-around">
+        <div class="col-sm-9 mt-2 p-2 ">
+          <h3 class="text-center mb-2">Dados complementares:</h3>
+          <p class="text-justify"><%= @complement.additional_information %></p>
+        
+          <p>Attachments</p>
+        </div>
+      </div>
+      
+    </div>
+    <p class="text-center"><%= link_to "Voltar", 'javascript:window.history.back();', class: "btn btn-primary button-p" %></p>
+  </div>
+</div>

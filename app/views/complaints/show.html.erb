@@ -1,57 +1,59 @@
-<div class="row justify-content-center">
-  <div class="container p-3 board_show">
-    <% if @complaint.custom? %>
-      <h3 class="text-center">Área:<strong> Aduana</strong></h3>
-    <% else %>
-      <h3 class="text-center">Área:<strong> Tributo Interno</strong></h3>
-    <% end %>
-  <br>
-    <div class="row justify-content-around">
-      <div class="col-sm-4 p-1 ">
-        <h3 class="text-center mb-2">Dados do Denunciado</h3>
-        <p>CNPJ: <strong><%= @complaint.ni_comp %></strong></p>
-        <p>Nome da Empresa: <strong><%= @complaint.name %></strong></p>
-        <p>Endereço: <strong><%= @complaint.address %></strong></p>
-        <p>Ano do Ilícito: <strong><%= @complaint.year_comp %></strong></p>
-        <p>Ilícito continua ocorrendo? <strong><%= @complaint.keep.capitalize %></strong></p>
-      </div>
-      <div class="col-sm-4 p-1 ">
-        <h3 class="text-center mb-2">Dados do Denunciante</h3>
-        <% if @complaint.user_id? %>
-          <p>Nome: <strong><%= @complaint.user.name%><strong></p>
-          <p>CPF: <strong><%= @complaint.user.cpf %></strong></p>
-          <p>E-mail: <strong><%= @complaint.user.email %></strong></p>
-        <% else %>
-          <p>Nome: <strong>Anônimo</strong></p>
-          <p>CPF: <strong> não aplicável </strong></p>
-          <p>E-mail:<strong> não aplicável </strong></p>
-        <% end %>
-      </div>
-    </div>
-    <div class="row justify-content-around">
-      <div class="col-sm-9 mt-2 p-2 ">
-        <h3 class="text-center mb-2">Descrição:</h3>
-        <p class="text-justify"><%= @complaint.description %></p>
-        <p>Attachments</p>
-        <h3 class="text-center mb-2">Enquadramento legal:</h3>
-        <ol type="I">
-          <% @complaint.categories.each do|category| %>
-          <li><%= category.title.capitalize %></li>
+<div class="wrapper">
+  <div class="row justify-content-center">
+    <div class="container p-3 board_show">
+      <% if @complaint.custom? %>
+        <h3 class="text-center">Área:<strong> Aduana</strong></h3>
+      <% else %>
+        <h3 class="text-center">Área:<strong> Tributo Interno</strong></h3>
+      <% end %>
+    <br>
+      <div class="row justify-content-around">
+        <div class="col-sm-4 p-1 ">
+          <h3 class="text-center mb-2">Dados do Denunciado</h3>
+          <p>CNPJ: <strong><%= @complaint.ni_comp %></strong></p>
+          <p>Nome da Empresa: <strong><%= @complaint.name %></strong></p>
+          <p>Endereço: <strong><%= @complaint.address %></strong></p>
+          <p>Ano do Ilícito: <strong><%= @complaint.year_comp %></strong></p>
+          <p>Ilícito continua ocorrendo? <strong><%= @complaint.keep.capitalize %></strong></p>
+        </div>
+        <div class="col-sm-4 p-1 ">
+          <h3 class="text-center mb-2">Dados do Denunciante</h3>
+          <% if @complaint.user_id? %>
+            <p>Nome: <strong><%= @complaint.user.name%><strong></p>
+            <p>CPF: <strong><%= @complaint.user.cpf %></strong></p>
+            <p>E-mail: <strong><%= @complaint.user.email %></strong></p>
+          <% else %>
+            <p>Nome: <strong>Anônimo</strong></p>
+            <p>CPF: <strong> não aplicável </strong></p>
+            <p>E-mail:<strong> não aplicável </strong></p>
           <% end %>
-        </ol>
+        </div>
       </div>
+      <div class="row justify-content-around">
+        <div class="col-sm-9 mt-2 p-2 ">
+          <h3 class="text-center mb-2">Descrição:</h3>
+          <p class="text-justify"><%= @complaint.description %></p>
+          <p>Attachments</p>
+          <h3 class="text-center mb-2">Enquadramento legal:</h3>
+          <ol type="I">
+            <% @complaint.categories.each do|category| %>
+            <li><%= category.title.capitalize %></li>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+      <h3 class="text-center mb-2">Informações Administrativas</h3>
+      <div class="row justify-content-around">
+        <div class="col-sm-4 p-1">
+          <p>Status da denúncia: <strong><%= @complaint.status.capitalize %></strong></p>
+          <p>Unidade Administrativa Responsável: <strong><%= @complaint.ua %></strong></p>
+          <p>Comentários: <strong><%= @complaint.comment %></strong></p>
+        </div>
+        <div class="col-sm-4 p-1">
+          <p>Servidor Responsável: <strong><%= @admins.find(@complaint.admin_user).name%></strong></p> 
+        </div>
+      </div>
+      <p class="text-center"><%= link_to "Voltar", 'javascript:window.history.back();', class: "btn btn-primary button-p" %></p>
     </div>
-    <h3 class="text-center mb-2">Informações Administrativas</h3>
-    <div class="row justify-content-around">
-      <div class="col-sm-4 p-1">
-        <p>Status da denúncia: <strong><%= @complaint.status.capitalize %></strong></p>
-        <p>Unidade Administrativa Responsável: <strong><%= @complaint.ua %></strong></p>
-        <p>Comentários: <strong><%= @complaint.comment %></strong></p>
-      </div>
-      <div class="col-sm-4 p-1">
-        <p>Servidor Responsável: <strong><%= @admins.find(@complaint.admin_user).name%></strong></p> 
-      </div>
-    </div>
-    <p class="text-center"><%= link_to "Voltar", 'javascript:window.history.back();', class: "btn btn-primary button-p" %></p>
   </div>
 </div>
