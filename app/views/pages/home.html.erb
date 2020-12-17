@@ -1,17 +1,20 @@
 <div class="home-video-wrapper">
-  <%= video_tag "institucional_receita_filtro-1000k.mp4", autoplay: :autoplay, muted: :muted, class: "home_video" %>
-  <div class="container">
-    <div class="text-main row justify-content-md-center">
-      <div class="col">
-        <h1 class="home"> Participe do combate</h1>
-        <h1 class="home" id="typed"> à sonegação </h1>
-        <br>
-        <div class="d-flex justify-content-center">
-          <% if user_signed_in? %>
-            <%= link_to "Denuncie", new_complaint_path, class: "link-denuncia js-lookforward", data:{"transition-enter": "slideup", "transition-leave": "slidedown"} %>
-          <% else %>
-            <%= link_to "Denuncie", ask_login_complaints_path, class: "link-denuncia js-lookforward", data:{"transition-enter": "slideup", "transition-leave": "slidedown"} %>
-          <% end %>
+  <%#= video_tag "institucional_receita_filtro-1000k.mp4", autoplay: :autoplay, muted: :muted, class: "home_video" %>
+  <div class="filtro-background d-flex align-items-center">
+    <%= image_tag "home.jpg", id:"foto-home", class:"filtro-background" %>
+    <div class="container">
+      <div class="text-main row justify-content-md-center">
+        <div class="col">
+          <h1 class="home"> Participe do combate</h1>
+          <h1 class="home" id="typed"> à sonegação </h1>
+          <br>
+          <div class="d-flex justify-content-center">
+            <% if user_signed_in? %>
+              <%= link_to "Denuncie", new_complaint_path, class: "link-denuncia js-lookforward", data:{"transition-enter": "slideup", "transition-leave": "slidedown"} %>
+            <% else %>
+              <%= link_to "Denuncie", ask_login_complaints_path, class: "link-denuncia js-lookforward", data:{"transition-enter": "slideup", "transition-leave": "slidedown"} %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
