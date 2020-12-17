@@ -9,18 +9,18 @@
         <div class="container p-2 shadow mb-2 bg-white rounded">
           <p>Registre as informações adicionais relativas à sua denúncia com o maior nível de detalhamento que conseguir:</p>
           <%= f.input :additional_information, label:false, :required => true %>
-        </div>     
-        <div class="container p-2 shadow mb-2 bg-white rounded">       
-          <p>Caso queira adicionar algum documento e/ou foto relativos à denúncia, clique no botão abaixo:</p>
-          <%= f.input :attachment, label:false, as: :file, input_html: { multiple: true }%> 
         </div>
-        <div class="container p-2 shadow mb-2 bg-white rounded">  
+        <div class="container p-2 shadow mb-2 bg-white rounded">
+          <p>Caso queira adicionar algum documento e/ou foto relativos à denúncia, clique no botão abaixo:</p>
+          <%= f.input :attachments, label:false, as: :file, input_html: { multiple: true }%>
+        </div>
+        <div class="container p-2 shadow mb-2 bg-white rounded">
           <p>Revise as informações e, quando finalizar, clique no botão "Confirmar".</p>
           <div class="nav justify-content-center">
             <button type="button" id="review_compl" class="btn btn-primary button-3a" data-toggle="modal" data-target="#info">
              REVISAR INFORMAÇÕES
             </button>
-          </div>  
+          </div>
         </div>
       </div>
     </div>
@@ -35,13 +35,13 @@
             </button>
             </div>
             <div class="modal-body">
-              <div class="container p-2 description_modal"> 
+              <div class="container p-2 description_modal">
                 <strong>Detalhamento: </strong>
               </div>
-              <div class="container p-2 shadow mb-2 rounded description_modal"> 
+              <div class="container p-2 shadow mb-2 rounded description_modal">
                 <p id="info_add_modal"></p>
               </div>
-              <div class="container p-2 shadow mb-2 rounded description_modal"> 
+              <div class="container p-2 shadow mb-2 rounded description_modal">
                 <strong>Documentos anexados: </strong>
                 <p id="attachments"></p>
               </div>
