@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     collection do
       get :my_complaints
     end
-    resources :complements, only: %i[new create]
+    resources :complements, only: %i[new create show]
     get 'ask_login', on: :collection
   end
   get 'help', to: 'pages#help'

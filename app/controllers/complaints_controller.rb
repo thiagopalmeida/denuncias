@@ -60,6 +60,7 @@ class ComplaintsController < ApplicationController
 
   def my_complaints
     @my_complaints = Complaint.where(user_id: current_user.id)
+    @complement = Complement.where(complaint: params[:id])
   end
 
   private

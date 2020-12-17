@@ -16,6 +16,10 @@ class ComplementsController < ApplicationController
     end
   end
 
+  def show
+    @complement = Complement.find(params[:id])
+  end
+
   private
 
   def complement_params
