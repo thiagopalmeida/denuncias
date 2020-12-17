@@ -38,7 +38,7 @@
                   <% else %>
                     <td>Anônimo</td>
                   <% end %>
-                  <td><%= link_to "Detalhes", complaint_path(complaint), class: "btn btn-primary btn-sm button-p" %></td>
+                  <td><%= link_to "Detalhes", complaint_path(complaint), class: "btn btn-primary btn-sm button-p", id: "button-dashboard-table" %></td>
                 </tr>
               <% end %>
             <% end %>
@@ -84,7 +84,7 @@
                     <% else %>
                       <td>Anônimo</p>
                     <% end %>
-                    <td><%= link_to "Detalhes", complaint_path(complaint), class: "btn btn-primary btn-sm button-p" %></td>
+                    <td><%= link_to "Detalhes", complaint_path(complaint), class: "btn btn-primary btn-sm button-p", id: "button-dashboard-table" %></td>
                   </tr>
                 <% end %>
               <% end %>
@@ -117,7 +117,7 @@
                     <td><%= complaint.name %></td>
                     <td><%= complaint.rating %></td>
                     <td><%= complaint.user.name %></td>
-                    <td><%= link_to "Detalhes", complaint_path(complaint), class: "btn btn-primary btn-sm button-p"  %></td>
+                    <td><%= link_to "Detalhes", complaint_path(complaint), class: "btn btn-primary btn-sm button-p", id: "button-dashboard-table"  %></td>
                   </tr>
                 <% end %>
               <% end %>
