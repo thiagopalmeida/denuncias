@@ -25,7 +25,7 @@ class ComplaintsController < ApplicationController
     @admins = User.where(admin: true)
     @admins_ids = @admins.ids
     @complaint.admin_user = @admins_ids.sample
-    @complaint.rating = set_rating
+    @complaint.rating = (set_rating * 6.67).round # Ajuste para ser até 100.
     if @complaint.save
       unless @complaint_categories_ids.nil?
         @complaint_categories_ids.each do |id|
@@ -81,8 +81,6 @@ class ComplaintsController < ApplicationController
   end
 
   def set_rating
-    # MAX = 15
-    # MIN = 1
     @rating = 0
     # Tamanho da Descrição da Denúncia
     # Maior que 100 palavras: 2 | Maior que 400 palavras: 3
