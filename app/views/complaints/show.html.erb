@@ -17,9 +17,15 @@
       </div>
       <div class="col-sm-4 p-1 ">
         <h3 class="text-center mb-2">Dados do Denunciante</h3>
-        <p>Nome:<strong><%= @complaint.user.name %></strong></p>
-        <p>CPF: <strong><%= @complaint.user.cpf %></strong></p>
-        <p>E-mail: <strong><%= @complaint.user.email %></strong></p>
+        <% if @complaint.user_id? %>
+          <p>Nome: <strong><%= @complaint.user.name%><strong></p>
+          <p>CPF: <strong><%= @complaint.user.cpf %></strong></p>
+          <p>E-mail: <strong><%= @complaint.user.email %></strong></p>
+        <% else %>
+          <p>Nome: <strong>Anônimo</strong></p>
+          <p>CPF: <strong> não aplicável </strong></p>
+          <p>E-mail:<strong> não aplicável </strong></p>
+        <% end %>
       </div>
     </div>
     <div class="row justify-content-around">
@@ -29,8 +35,8 @@
         <p>Attachments</p>
         <h3 class="text-center mb-2">Enquadramento legal:</h3>
         <ol type="I">
-          <% @complaint.categories.each do|categorie| %>
-          <li><%= categorie.title.capitalize %></li>
+          <% @complaint.categories.each do|category| %>
+          <li><%= category.title.capitalize %></li>
           <% end %>
         </ol>
       </div>
@@ -43,7 +49,7 @@
         <p>Comentários: <strong><%= @complaint.comment %></strong></p>
       </div>
       <div class="col-sm-4 p-1">
-        <p>Servidor Responsável: <strong><%= @admins.find(@complaint.admin_user).name %> </strong></p>
+        <p>Servidor Responsável: <strong><%= @admins.find(@complaint.admin_user).name%></strong></p> 
       </div>
     </div>
     <p class="text-center"><%= link_to "Voltar", 'javascript:window.history.back();', class: "btn btn-primary" %></p>
