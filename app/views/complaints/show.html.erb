@@ -57,6 +57,21 @@
             <% end %>
         </div>
       </div>
+      <div class="row justify-content-around">
+        <div class="col-sm-9 mt-2 p-2 ">
+          <h3 class="text-center mb-2">Informações complementares à denúncia:</h3>
+          <% if @complaint.complements.size.positive? %>
+            <% @complaint.complements.each do |complement|%>
+            <li><%= complement.additional_information %></li>
+            <% end %>
+          <% else %>
+            <td> Nenhuma informação complementar.</td>
+          <% end %>
+            <br>
+            <br>
+        </div>
+      </div>
+
       <h3 class="text-center mb-2">Informações Administrativas</h3>
       <div class="row justify-content-around">
         <div class="col-sm-4 p-1">
@@ -72,7 +87,7 @@
           <p>Servidor Responsável: <strong><%= @admins.find(@complaint.admin_user).name%></strong></p>
         </div>
       </div>
-      <p class="text-center"><%= link_to "Voltar", complaints_path, data: { turbolinks: "false"}, class: "btn btn-primary button-p" %></p>
-    </div>
+      <p class="col-sm-4 p-1 text-center"><%= link_to "Voltar", complaints_path, data: { turbolinks: "false"}, class: "btn btn-primary button-p" %></p>
     </div>
   </div>
+</div>
