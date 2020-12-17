@@ -96,6 +96,7 @@ class ComplaintsController < ApplicationController
     @rating += 2 if @complaint.ni_comp?
 
     # Ano => Menor que 2016: 1 | 2017 e 2018: 3 | 2019 e 2020: 2
+    # Quando der, refatorar esta parte:
     if @complaint.year_comp == 2019 || @complaint.year_comp == 2020
       @rating += 2
     elsif @complaint.year_comp == 2017 || @complaint.year_comp == 2018
