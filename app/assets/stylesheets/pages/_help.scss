@@ -33,6 +33,9 @@
   padding-top: 16px;
   font-family: $headers-font;
   padding-bottom: 6px;
+  text-align: left;
+  color: $my-dark-blue;
+  font-weight: bold;
 }
 
 .panel-heading [data-toggle="collapse"]:after {
@@ -44,6 +47,7 @@
   font-size: 16px;
   font-family: $body-font;
   text-align: justify;
+  font-weight: 100;
 }
 
 .panel-default {
@@ -52,4 +56,9 @@
 
 .panel-title {
   font-size: 18px;
+
+}
+
+.wrapper-faq {
+  background-color: rgba(160,160,160,0.1);
 }

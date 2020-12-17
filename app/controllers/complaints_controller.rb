@@ -20,13 +20,22 @@ class ComplaintsController < ApplicationController
   def create
     @complaint = Complaint.new(complaint_params)
     @complaint.user = current_user
-    @complaint_categories_ids = params[:complaint][:categories]
-    @complaint.save
-    @complaint_categories_ids.each do |id|
-      new = ComplaintCategory.new(category_id: id.to_i, complaint_id: @complaint.id)
-      new.save
+    @complaint_categories_ids = params[:complaint][:category_ids]
+    if @complaint.save
+      unless @complaint_categories_ids.nil?
+        @complaint_categories_ids.each do |id|
+          new = ComplaintCategory.new(category_id: id.to_i, complaint_id: @complaint.id)
+          new.save
+        end
+      end
+    else
+      render :new
     end
-    redirect_to root_path, notice: "Denúncia criada com sucesso!"
+    if user_signed_in?
+      redirect_to my_complaints_complaints_path, notice: "Denúncia criada com sucesso!"
+    else
+      redirect_to root_path, notice: "Denúncia criada com sucesso!"
+    end
   end
 
   def edit
@@ -65,5 +74,4 @@ class ComplaintsController < ApplicationController
   def set_complaint
     @complaint = Complaint.find(params[:id])
   end
-
 end
