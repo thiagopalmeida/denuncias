@@ -12,8 +12,8 @@
             <h4>Você gostaria de se identificar?</h4>
             <br>
             <div class="button-1 text-center">
-              <%= link_to "Sim", new_user_registration_path, class:"btn-ask-login text-center"%>
-              <%= link_to "Não", new_complaint_path, class:"btn-ask-login"%>
+              <%= link_to "Sim", new_user_registration_path, class:"btn-ask-login text-center", data: { turbolinks: "false"}%>
+              <%= link_to "Não", new_complaint_path, class:"btn-ask-login", data: { turbolinks: "false"}%>
           </div>
         </div>
       </div>
