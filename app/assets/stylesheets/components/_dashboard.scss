@@ -1,6 +1,5 @@
 .board {
   border-radius: 10px;
-  margin: 10px;
   height: 42vh;
   overflow-x: hidden;
   overflow-y: auto;
@@ -8,6 +7,14 @@
   p {
     font-size: 20px;
   }
+}
+
+.board-pequena-left {
+  margin-left: 30px;
+}
+
+.board-pequena-right {
+  margin-right: 30px;
 }
 
 .board_show {
