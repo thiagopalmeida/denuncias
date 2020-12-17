@@ -42,8 +42,15 @@ class ComplaintsController < ApplicationController
   end
 
   def update
-    @complaint.status = params[:status]
-    @complaint.save
+    if params[:myInfo] == "ua_rf"
+      @complaint.ua = params[:ua]
+      @complaint.comment = params[:comment]
+      @complaint.save
+      redirect_to complaint_path(@complaint)
+    else
+      @complaint.status = params[:status]
+      @complaint.save
+    end
   end
 
   def my_complaints
@@ -58,7 +65,7 @@ class ComplaintsController < ApplicationController
       :year_comp, :keep,
       :description, :user_id,
       :know_ni, :name,
-      :address, :status,
+      :address, :status, :ua,
       :with_attach,
       attachments: []
     )

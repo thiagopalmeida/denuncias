@@ -88,8 +88,8 @@ puts "-======= Criando denúncias... =======-"
     status: %w[recebida encaminhada finalizada].sample,
     admin_user: admin.id,
     rating: (1..5).to_a.sample,
-    ua: ['Primeira Região Fiscal', 'Segunda Região Fiscal', 'Terceira Região Fiscal', 'Quarta Região Fiscal'].sample,
-    comment: Faker::ChuckNorris.fact
+    ua: "",
+    comment: ""
     )
 
   puts "-- Denúncia #{d.id} criada. --"

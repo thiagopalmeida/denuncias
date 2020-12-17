@@ -1,6 +1,6 @@
   <div class="container-fluid dash">
     <div class="row justify-content-center">
-      <div class="col-sm-9 p-2 board">
+      <div class="col-sm-10 p-2 board">
         <h4 class="text-center font-weight-bold">Recebidas</h4>
         <table class="table table-hover table-borderless">
           <thead class="thead-light">
@@ -11,7 +11,7 @@
             <th>Denunciante</th>
             <th>Mais Informações</th>
           </thead>
-          <tbody id="rec">
+          <tbody id="rec" >
             <% @complaints.each do |complaint| %>
               <% if complaint.status == "recebida" %>
                 <tr class='handle' data-ajax-path="<%= complaint_path(complaint) %>" data-table-source="recebida">
@@ -43,7 +43,7 @@
               <th>Denunciante</th>
               <th>Mais Informações</th>
             </thead>
-            <tbody id="enc">
+            <tbody id="enc" >
               <% @complaints.each do |complaint| %>
                 <% if complaint.status == "encaminhada" %>
                   <tr class='handle' data-ajax-path="<%= complaint_path(complaint) %>" data-table-source="encaminhada">
@@ -74,7 +74,7 @@
               <th>Denunciante</th>
               <th>Mais Informações</th>
             </thead>
-            <tbody id="fin">
+            <tbody id="fin" >
               <% @complaints.each do |complaint| %>
                 <% if complaint.status == "finalizada" %>
                   <tr class='handle' data-ajax-path="<%= complaint_path(complaint) %>" data-table-source="encaminhada">
@@ -93,6 +93,61 @@
               <% end %>
             </tbody>
           </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- MODAL UA -->
+  <div class="modal fade" id="enc-ua" tabindex="-1" aria-labelledby="infoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title text-center" id="infoLabel">Encaminhar Denúncia</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="false">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="area_modal text-center">
+            <h5>Indique a Unidade Administrativa para encaminhamento</h5>
+              <form id="form-id" action="" method="post">
+                <input type="hidden" name="authenticity_token" value="">
+                <input type="hidden" name="_method" value="patch" />
+                <input type="hidden" name="myInfo" value="ua_rf" />
+                <div class="row justify-content-around">
+                  <div class="col-9">
+                    <input class="modal-dash" type="text" id="co" name="comment" value="" placeholder="Comentário"></small>
+                  </div>
+                  <div class="col-sm-4">
+                    <small><input class="modal-dash" type="radio" id="1a" name="ua" value="1ª Região">
+                    <label class="modal-dash" for="1a" data-ua-sel="1ª Região Fiscal (DF, GO, MT, MS e TO)">1ª Região Fiscal</label></small>
+                    <small><input class="modal-dash" type="radio" id="2a" name="ua" value="2ª Região">
+                    <label class="modal-dash" for="2a">2ª Região Fiscal</label></small>
+                    <small><input class="modal-dash" type="radio" id="3a" name="ua" value="3ª Região Fiscal">
+                    <label class="modal-dash" for="3a">3ª Região Fiscal</label></small>
+                    <small><input class="modal-dash" type="radio" id="4a" name="ua" value="4ª Região Fiscal">
+                    <label class="modal-dash" for="4a">4ª Região Fiscal</label></small>
+                    <small><input class="modal-dash" type="radio" id="5a" name="ua" value="5ª Região Fiscal">
+                    <label class="modal-dash" for="5a">5ª Região Fiscal</label></small>
+                  </div>
+                  <div class="col-sm-4">
+                    <small><input class="modal-dash" type="radio" id="6a" name="ua" value="6ª Região Fiscal">
+                    <label class="modal-dash" for="6a">6ª Região Fiscal</label></small>
+                    <small><input class="modal-dash" type="radio" id="7a" name="ua" value="7ª Região Fiscal">
+                    <label class="modal-dash" for="7a">7ª Região Fiscal</label></small>
+                    <small><input class="modal-dash" type="radio" id="8a" name="ua" value="8ª Região Fiscal">
+                    <label class="modal-dash" for="8a">8ª Região Fiscal</label></small>
+                    <small><input class="modal-dash" type="radio" id="9a" name="ua" value="9ª Região Fiscal">
+                    <label class="modal-dash" for="9a">9ª Região Fiscal</label></small>
+                    <small><input class="modal-dash" type="radio" id="10a" name="ua" value="10ª Região Fiscal">
+                    <label class="modal-dash" for="10a">10ª Região Fiscal</label></small>
+                  </div>
+                </div>
+            </div>
+          </div>
+        <div class="modal-footer">
+          <input id="enc-den" type="submit" value="Encaminhar" class="btn btn-primary">
+        </form>
         </div>
       </div>
     </div>
