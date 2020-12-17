@@ -11,9 +11,9 @@
         </div>
         <div class="col-9 text-form">
           <div class="p-4 main-text">
-            <h4><strong>Desde já, agradecemos pela sua denúncia. Vamos começar?</strong></h4>
+            <h3><strong>Desde já, agradecemos pela sua denúncia. Vamos começar?</strong></h3>
             <br>
-            <h5>O trabalho da Receita Federal pode ser dividido em duas grandes áreas. A qual das duas áreas sua denúncia se refere?</h5>
+            <h4>O trabalho da Receita Federal pode ser dividido em duas grandes áreas. A qual das duas áreas sua denúncia se refere?</h4>
             <br>
             <div class="button-1 text-center">
               <%=f.collection_radio_buttons :custom, [[true, 'Aduana'] ,
@@ -106,8 +106,8 @@
               </div>
               <div id="element-hide-3b" style="display: none;">
                 <div>
-                  <p>Não tem problema. Para nos ajudar a localizar esta pessoa, saberia dizer
-                  o seu endereço e/ou o seu nome?</p>
+                  <h5>Para nos ajudar a localizar esta pessoa, saberia dizer
+                  o seu endereço e/ou o seu nome?</h5>
                   <%= f.input :name, label:false, :placeholder => 'Nome' %>
                   <%= f.input :address, label:false, :placeholder => 'Endereço' %>
                   <span class="btn btn-primary button-3b">OK</span>
@@ -215,9 +215,13 @@
         <div class="container row intern-container p-0">
           <div class="col justify-content-center text-form">
             <div class="p-4 main-text">
-              <h1>Já estamos quase acabando...</h1>
-              <p>Gostaria de incluir algum documento ou foto relativo à denúncia?</p>
-              <%=f.collection_radio_buttons :with_attach, [[true, 'Sim'], [false, 'Não']], :first, :last%>
+              <h3>Já estamos quase acabando...</h3>
+              <br>
+              <h4>Gostaria de incluir algum documento ou foto relativo à denúncia?</h4>
+              <br>
+              <div class="button-1 text-center">
+                <%=f.collection_radio_buttons :with_attach, [[true, 'Sim'], [false, 'Não']], :first, :last%>
+              </div>
               <div class="m-4" id="element-hide-6a" style="display: none;">
                 <%= f.input :attachment, label:false, as: :file, input_html: { multiple: true }%>
                 <span class="btn btn-primary button-5">OK</span>
@@ -263,7 +267,8 @@
           <div class="col-12 text-form p-0 d-flex justify-content-center">
             <div class="main-text">
               <br>
-              <h2 class="m-3">Em sua opinião, quais tópicos possuem relação com sua denúncia? Selecione quantos desejar.</h2>
+              <h3 class="m-3">Em sua opinião, quais tópicos possuem relação com sua denúncia? 
+              Selecione quantos desejar.</h3>
               <br>
               <div id="categories-custom" style="display: none;">
                 <%= f.association :categories, as: :check_boxes, collection: @cat_aduana, include_hidden: false %>
