@@ -2,6 +2,7 @@
  * https://github.com/jpillora/verify
  * Copyright (c) 2013 Jaime Pillora - MIT
  */
+
 if (document.querySelector('.form-login')) {
 
   (function(window,document,undefined) {
@@ -2588,3 +2589,4 @@ if (document.querySelector('.form-login')) {
   })(jQuery);
 }(window,document));
 }
+
