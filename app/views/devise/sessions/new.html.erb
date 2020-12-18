@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" style="height: 100vh;">
   <div class="container">
     <div class="row justify-content-around">
       <div class="col-xs-12 col-sm-6">
@@ -17,10 +17,10 @@
                           input_html: { autocomplete: "current-password",
                           placeholder: "**********"} %>
               <%#= f.input :remember_me, label: 'Lembrar de mim',as: :boolean if devise_mapping.rememberable? %>
+            </div>
             <div class="form-actions">
               <%= f.button :submit, "Entrar", class: "btn btn-primary button-p" %>
             </div>
-          </div>
           <% end %>
           <%= render "devise/shared/links" %>
         </div>
