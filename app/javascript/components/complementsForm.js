@@ -4,7 +4,7 @@ const initComplements = () => {
     const description = document.getElementById("complement_additional_information").value;
     const description_field = document.getElementById("info_add_modal");
       description_field.innerText = description;
-    document.getElementById("complement_attachment").value;
+    document.getElementById("complement_attachments").value;
     const files = document.querySelector(".form-control-file").files;
     const att_field = document.getElementById("attachments");
     if (files.length > 0) {

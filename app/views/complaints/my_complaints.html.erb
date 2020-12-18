@@ -42,19 +42,6 @@
 
             <table class="table table-hover table-borderless">
               <thead class="thead-light">
-                <th>Anexo(s)</th>
-              </thead>
-              <tbody> 
-              <td>
-                <% complaint.attachments.each do |att| %>
-                <%= cl_image_path att.key%>
-                <% end %>
-                </td>
-              </tbody>
-            </table>
-
-            <table class="table table-hover table-borderless">
-              <thead class="thead-light">
                 <th>Categorias às quais a denúncia se relaciona</th>
               </thead>
               <tbody id="my_comp">
