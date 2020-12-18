@@ -17,16 +17,18 @@
           <tbody id="rec" >
             <% @complaints.each do |complaint| %>
 
-              <% if complaint.rating > 80 %>
-                <% cor_back = "dark-red-class"%>
-              <% elsif complaint.rating > 60 %>
-                <% cor_back = "red-class"%>
-              <% elsif complaint.rating > 40 %>
-                <% cor_back = "yellow-class"%>
-              <% elsif complaint.rating > 20 %>
-                <% cor_back = "green-class"%>
-              <% else %>
-                <% cor_back = "dark-green-class"%>
+              <% unless complaint.rating.nil? %>
+                <% if complaint.rating > 80 %>
+                  <% cor_back = "dark-red-class"%>
+                <% elsif complaint.rating > 60 %>
+                  <% cor_back = "red-class"%>
+                <% elsif complaint.rating > 40 %>
+                  <% cor_back = "yellow-class"%>
+                <% elsif complaint.rating > 20 %>
+                  <% cor_back = "green-class"%>
+                <% else %>
+                  <% cor_back = "dark-green-class"%>
+                <% end %>
               <% end %>
 
               <% if complaint.status == "recebida" %>
@@ -76,16 +78,18 @@
             <tbody id="enc" >
               <% @complaints.each do |complaint| %>
 
-                <% if complaint.rating > 80 %>
-                  <% cor_back = "dark-red-class"%>
-                <% elsif complaint.rating > 60 %>
-                  <% cor_back = "red-class"%>
-                <% elsif complaint.rating > 40 %>
-                  <% cor_back = "yellow-class"%>
-                <% elsif complaint.rating > 20 %>
-                  <% cor_back = "green-class"%>
-                <% else %>
-                  <% cor_back = "dark-green-class"%>
+                <% unless complaint.rating.nil? %>
+                  <% if complaint.rating > 80 %>
+                    <% cor_back = "dark-red-class"%>
+                  <% elsif complaint.rating > 60 %>
+                    <% cor_back = "red-class"%>
+                  <% elsif complaint.rating > 40 %>
+                    <% cor_back = "yellow-class"%>
+                  <% elsif complaint.rating > 20 %>
+                    <% cor_back = "green-class"%>
+                  <% else %>
+                    <% cor_back = "dark-green-class"%>
+                  <% end %>
                 <% end %>
 
                 <% if complaint.status == "encaminhada" %>
@@ -134,16 +138,18 @@
             <tbody id="fin" >
               <% @complaints.each do |complaint| %>
 
-                <% if complaint.rating > 80 %>
-                  <% cor_back = "dark-red-class"%>
-                <% elsif complaint.rating > 60 %>
-                  <% cor_back = "red-class"%>
-                <% elsif complaint.rating > 40 %>
-                  <% cor_back = "yellow-class"%>
-                <% elsif complaint.rating > 20 %>
-                  <% cor_back = "green-class"%>
-                <% else %>
-                  <% cor_back = "dark-green-class"%>
+                <% unless complaint.rating.nil? %>
+                  <% if complaint.rating > 80 %>
+                    <% cor_back = "dark-red-class"%>
+                  <% elsif complaint.rating > 60 %>
+                    <% cor_back = "red-class"%>
+                  <% elsif complaint.rating > 40 %>
+                    <% cor_back = "yellow-class"%>
+                  <% elsif complaint.rating > 20 %>
+                    <% cor_back = "green-class"%>
+                  <% else %>
+                    <% cor_back = "dark-green-class"%>
+                  <% end %>
                 <% end %>
 
                 <% if complaint.status == "finalizada" %>
