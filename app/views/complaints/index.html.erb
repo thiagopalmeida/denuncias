@@ -16,8 +16,21 @@
           </thead>
           <tbody id="rec" >
             <% @complaints.each do |complaint| %>
+
+              <% if complaint.rating > 80 %>
+                <% cor_back = "dark-red-class"%>
+              <% elsif complaint.rating > 60 %>
+                <% cor_back = "red-class"%>
+              <% elsif complaint.rating > 40 %>
+                <% cor_back = "yellow-class"%>
+              <% elsif complaint.rating > 20 %>
+                <% cor_back = "green-class"%>
+              <% else %>
+                <% cor_back = "dark-green-class"%>
+              <% end %>
+
               <% if complaint.status == "recebida" %>
-                <tr class='handle' data-ajax-path="<%= complaint_path(complaint) %>" data-table-source="recebida">
+                <tr class='handle <%= cor_back %>' data-ajax-path="<%= complaint_path(complaint) %>" data-table-source="recebida">
                   <% if complaint.custom? %>
                     <td>Aduana</td>
                   <% else %>
@@ -62,8 +75,21 @@
             </thead>
             <tbody id="enc" >
               <% @complaints.each do |complaint| %>
+
+                <% if complaint.rating > 80 %>
+                  <% cor_back = "dark-red-class"%>
+                <% elsif complaint.rating > 60 %>
+                  <% cor_back = "red-class"%>
+                <% elsif complaint.rating > 40 %>
+                  <% cor_back = "yellow-class"%>
+                <% elsif complaint.rating > 20 %>
+                  <% cor_back = "green-class"%>
+                <% else %>
+                  <% cor_back = "dark-green-class"%>
+                <% end %>
+
                 <% if complaint.status == "encaminhada" %>
-                  <tr class='handle' data-ajax-path="<%= complaint_path(complaint) %>" data-table-source="encaminhada">
+                  <tr class='handle <%= cor_back %>' data-ajax-path="<%= complaint_path(complaint) %>" data-table-source="encaminhada">
                     <% if complaint.custom? %>
                       <td>Aduana</td>
                     <% else %>
@@ -107,8 +133,21 @@
             </thead>
             <tbody id="fin" >
               <% @complaints.each do |complaint| %>
+
+                <% if complaint.rating > 80 %>
+                  <% cor_back = "dark-red-class"%>
+                <% elsif complaint.rating > 60 %>
+                  <% cor_back = "red-class"%>
+                <% elsif complaint.rating > 40 %>
+                  <% cor_back = "yellow-class"%>
+                <% elsif complaint.rating > 20 %>
+                  <% cor_back = "green-class"%>
+                <% else %>
+                  <% cor_back = "dark-green-class"%>
+                <% end %>
+
                 <% if complaint.status == "finalizada" %>
-                  <tr class='handle' data-ajax-path="<%= complaint_path(complaint) %>" data-table-source="encaminhada">
+                  <tr class='handle <%= cor_back %>' data-ajax-path="<%= complaint_path(complaint) %>" data-table-source="encaminhada">
                     <% if complaint.custom? %>
                       <td>Aduana</td>
                     <% else %>
