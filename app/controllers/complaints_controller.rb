@@ -51,7 +51,7 @@ class ComplaintsController < ApplicationController
       @complaint.ua = params[:ua]
       @complaint.comment = params[:comment]
       @complaint.save
-      redirect_to complaint_path(@complaint)
+      redirect_to complaints_path
     else
       @complaint.status = params[:status]
       @complaint.save
